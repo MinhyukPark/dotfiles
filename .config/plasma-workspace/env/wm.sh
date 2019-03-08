@@ -1,0 +1,1 @@
+/home/min/.config/plasma-workspace/env/wm.sh
