@@ -1,1 +1,111 @@
-/home/min/.zshrc
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt appendhistory extendedglob nomatch notify
+unsetopt autocd beep
+bindkey -v
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/min/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+# from ~/.bashrc
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+
+# syntactic sugars
+alias ls='ls --color=auto'
+alias lt='ls -l -t'
+alias ll='ls -l -h'
+alias lla='ls -l -a'
+alias kdelogout='qdbus org.kde.ksmserver /KSMServer logout 0 0 0'
+alias spotify='spotify &; disown'
+alias netflix='google-chrome-stable -app=https://www.netflix.com'
+alias hulu='google-chrome-stable -app=https://www.hulu.com'
+alias restart='reboot'
+# End from ~/.bash rc
+
+# from arch  wiki 
+zstyle ':completion:*' rehash true
+
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='\uf054 '
+
+# Powerlevel9k install instructions
+# source /usr/share/fonts/awesome-terminal-fonts/*.sh
+# POWERLEVEL9K_MODE='awesome-fontconfig'
+POWERLEVEL9K_MODE='nerdfont-complete'
+source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+
+# Powerline stuff
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=()
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode background_jobs load history) 
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+
+POWERLEVEL9K_BATTERY_LOW_THRESHOLD=15
+POWERLEVEL9K_BATTERY_VERBOSE=true
+POWERLEVEL9K_BATTERY_STAGES=(
+   $'▏    ▏' $'▎    ▏' $'▍    ▏' $'▌    ▏' $'▋    ▏' $'▊    ▏' $'▉    ▏' $'█    ▏'
+   $'█▏   ▏' $'█▎   ▏' $'█▍   ▏' $'█▌   ▏' $'█▋   ▏' $'█▊   ▏' $'█▉   ▏' $'██   ▏'
+   $'██   ▏' $'██▎  ▏' $'██▍  ▏' $'██▌  ▏' $'██▋  ▏' $'██▊  ▏' $'██▉  ▏' $'███  ▏'
+   $'███  ▏' $'███▎ ▏' $'███▍ ▏' $'███▌ ▏' $'███▋ ▏' $'███▊ ▏' $'███▉ ▏' $'████ ▏'
+   $'████ ▏' $'████▎▏' $'████▍▏' $'████▌▏' $'████▋▏' $'████▊▏' $'████▉▏' $'█████▏' )
+
+POWERLEVEL9K_BATTERY_LOW_FOREGROUND='238'
+POWERLEVEL9K_BATTERY_LOW_BACKGROUND='210'
+POWERLEVEL9K_BATTERY_CHARGING_FOREGROUND='238'
+POWERLEVEL9K_BATTERY_CHARGING_BACKGROUND='210'
+POWERLEVEL9K_BATTERY_CHARGED_FOREGROUND='238'
+POWERLEVEL9K_BATTERY_CHARGED_BACKGROUND='210'
+POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND='238'
+POWERLEVEL9K_BATTERY_DISCONNECTED_BACKGROUND='210'
+
+
+POWERLEVEL9K_LOAD_CRITICAL_BACKGROUND="168"
+POWERLEVEL9K_LOAD_CRITICAL_FOREGROUND="251"
+POWERLEVEL9K_LOAD_WARNING_BACKGROUND="168"
+POWERLEVEL9K_LOAD_WARNING_FOREGROUND="251"
+POWERLEVEL9K_LOAD_NORMAL_BACKGROUND="168"
+POWERLEVEL9K_LOAD_NORMAL_FOREGROUND="251"
+# Colorize only the visual identifier
+POWERLEVEL9K_LOAD_CRITICAL_VISUAL_IDENTIFIER_COLOR="red"
+POWERLEVEL9K_LOAD_WARNING_VISUAL_IDENTIFIER_COLOR="yellow"
+POWERLEVEL9K_LOAD_NORMAL_VISUAL_IDENTIFIER_COLOR="green"
+
+
+POWERLEVEL9K_TIME_BACKGROUND='217'
+POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
+
+POWERLEVEL9K_HISTORY_BACKGROUND='181'
+
+POWERLEVEL9K_DIR_HOME_BACKGROUND='181'
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='181'
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='181'
+POWERLEVEL9K_DIR_ETC_BACKGROUND='181'
+
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND='193'
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='193'
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='193'
+
+POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='251'
+POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='238'
+POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND='132'
+POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND='156'
+POWERLEVEL9K_VI_INSERT_MODE_STRING='Insert <3'
+POWERLEVEL9K_VI_COMMAND_MODE_STRING='Normal o w o'
+
+POWERLEVEL9K_VIRTUALENV_BACKGROUND=168
+POWERLEVEL9K_VIRTUALENV_FOREGROUND=251
+
+
+eval $( dircolors -b $HOME/Downloads/scripts/LS_COLORS )
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
