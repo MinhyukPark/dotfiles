@@ -14,7 +14,6 @@ colorscheme monokai
 "vim latex things
 let g:vimtex_view_general_viewer = 'chromium'
 let maplocalleader = ','
-"let g:livepreview_previewer='chromium'
 
 "lightline things
 set laststatus=2
