@@ -1,0 +1,246 @@
+[bar/top]
+monitor = ${env:MONITOR:}
+width = 100%
+height = 40
+
+
+background = #00000000
+foreground = #dd474747
+
+line-color = ${bar/bottom.background}
+line-size = 4
+
+spacing = 3 
+padding-right = 2
+module-margin-left = 2
+module-margin-right = 2
+
+font-0 = monospace:size=16;5
+font-1 = unifont:size=16;5
+font-2 = FontAwesome:size=16;5
+font-3 = NotoSans-Regular:size=16;5
+font-4 = MaterialIcons:size=16;5
+font-5 = Termsynu:size=16:antialias=false;5
+
+modules-left = i3
+modules-center = music
+modules-right = clock
+
+[bar/bottom]
+monitor = ${env:MONITOR:}
+bottom = true
+width = 100%
+height = 35
+
+background = ${bar/top.background}
+foreground = ${bar/top.foreground}
+
+line-color = ${bar/bottom.background}
+line-size = 2
+
+spacing = 2 
+padding-right = 2 
+module-margin-left = 0 
+module-margin-right = 2 
+
+font-0 = monospace:size=16;-5
+font-1 = unifont:size=16;-5
+font-2 = FontAwesome:size=16;-5
+font-3 = NotoSans-Regular:size=16;-5
+font-4 = MaterialIcons:size=16;-5
+font-5 = Termsynu:size=16:antialias=false;-5
+
+modules-left = 
+modules-right = cpu memory battery
+
+[module/battery]
+time-format =%H:%M
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 97
+
+format-charging =<animation-charging><label-charging>
+format-discharging =<ramp-capacity><label-discharging>
+format-full =<label-full>
+
+label-charging =%percentage%% %time%
+
+label-discharging =%percentage%% %time%
+
+label-full =Fully charged
+
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0 =
+ramp-capacity-1 =
+ramp-capacity-2 =
+ramp-capacity-3 =
+ramp-capacity-4 =
+
+; Only applies if <animation-charging> is used
+animation-charging-0 =
+animation-charging-1 =
+animation-charging-2 =
+animation-charging-3 =
+animation-charging-4 =
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+; Only applies if <animation-discharging> is used
+animation-discharging-0 =
+animation-discharging-1 =
+animation-discharging-2 =
+animation-discharging-3 =
+animation-discharging-4 =
+; Framerate in milliseconds
+animation-discharging-framerate = 500
+
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+format =<label><ramp-coreload>
+label =cpu boi
+
+ramp-coreload-0 = ▁
+ramp-coreload-0-font = 2
+ramp-coreload-0-foreground = #669947
+ramp-coreload-1 = ▂
+ramp-coreload-1-font = 2
+ramp-coreload-1-foreground = #669947
+ramp-coreload-2 = ▃
+ramp-coreload-2-font = 2
+ramp-coreload-2-foreground = #669947
+ramp-coreload-3 = ▄
+ramp-coreload-3-font = 2
+ramp-coreload-3-foreground = #669947
+ramp-coreload-4 = ▅
+ramp-coreload-4-font = 2
+ramp-coreload-4-foreground = #966514
+ramp-coreload-5 = ▆
+ramp-coreload-5-font = 2
+ramp-coreload-5-foreground = #966514
+ramp-coreload-6 = ▇
+ramp-coreload-6-font = 2
+ramp-coreload-6-foreground = #993333
+ramp-coreload-7 = █
+ramp-coreload-7-font = 2
+ramp-coreload-7-foreground = #993333
+
+[module/memory]
+type = internal/memory
+format =<label><bar-used>
+label =mem boi
+
+bar-used-width = 30
+bar-used-foreground-0 = #669947
+bar-used-foreground-1 = #669947
+ar-used-foreground-2 = #966514
+bar-used-foreground-3 = #993333
+bar-used-indicator = |
+bar-used-indicator-font = 6
+bar-used-indicator-foreground = #88474747
+bar-used-fill = ─
+bar-used-fill-font = 6
+bar-used-empty = ─
+bar-used-empty-font = 6
+bar-used-empty-foreground = #88474747
+
+[module/clock]
+type = internal/date
+interval = 2
+date = %%{F#dd474747}%m-%d %H:%M%%{F-}
+
+
+[module/wired-network]
+type = internal/network
+interface = wlp2s0
+ping-interval = 3
+unknown-as-up = true
+accumulate-stats = true
+
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+format-packetloss = <animation-packetloss> <label-connected>
+
+label-connected = %essid% %downspeed:9%
+label-connected-foreground = #ffffff
+
+label-disconnected = not connected
+label-disconnected-foreground = #ffffff
+
+; Only applies if <animation-packetloss> is used
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = #000000
+; Framerate in milliseconds
+animation-packetloss-framerate = 500
+
+[module/wireless-network]
+type = internal/network
+interface = wlp2s0
+ping-interval = 3
+unknown-as-up = true
+accumulate-stats = true
+
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+format-packetloss = <animation-packetloss> <label-connected>
+
+label-connected = %essid% %downspeed:9%
+label-connected-foreground = #ffffff
+
+label-disconnected = not connected
+label-disconnected-foreground = #ffffff
+
+; Only applies if <animation-packetloss> is used
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = #000000
+; Framerate in milliseconds
+animation-packetloss-framerate = 500
+
+[module/music]
+type = custom/script
+exec = if [[ "$(playerctl status)" = "Playing" ]]; then playerctl metadata xesam:artist; echo -n " - "; playerctl metadata xesam:title; else echo -n ""; fi
+exec-if = [[ "$(playerctl status)" = "Playing" || "$(playerctl status)" = "Paused" ]] && echo "0"
+interval = 1
+format = <label>
+
+[module/i3]
+type = internal/i3
+
+pin-workspaces = true
+strip-wsnumbers = true
+index-sort = true
+enable-click = false
+enable-scroll = false
+wrapping-scroll = false
+reverse-scroll = false
+fuzzy-match = true
+format = <label-state> <label-mode>
+
+label-mode = %mode%
+label-mode-padding = 4
+
+label-focused = %index% 
+label-focused-background = #11FF0000
+label-focused-overline = #E38F85
+;label-focused-underline = #BB0000
+label-focused-padding = 3
+
+label-unfocused = %index%
+label-unfocused-padding = 3
+
+label-visible = %index%
+label-visible-padding = 3
+
+label-urgent = %index%
+label-urgent-padding = 3
+
+;label-separator =
+
+; vim:ft=dosini
