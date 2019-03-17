@@ -11,6 +11,11 @@ let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 1
 colorscheme monokai
 
+"vim latex things
+let g:vimtex_view_general_viewer = 'chromium'
+let maplocalleader = ','
+"let g:livepreview_previewer='chromium'
+
 "lightline things
 set laststatus=2
 let g:lightline = {
@@ -88,6 +93,8 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'junegunn/goyo.vim'
 Plugin 'haya14busa/incsearch.vim'
+Plugin 'lervag/vimtex'
+"Plugin 'xuhdev/vim-latex-live-preview'
 "Plugin 'scrooloose/syntastic'
 
 call vundle#end()
