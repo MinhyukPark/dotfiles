@@ -22,7 +22,7 @@ font pango:'SauceCodePro Nerd Font'  9
 floating_modifier $mod
 
 # Start a terminal
-bindsym $mod+Return exec termite -d "$(xcwd)" &
+bindsym $mod+Return exec termite -d "$(pwd)" &
 
 # Kill focused window
 bindsym $mod+Shift+q kill
