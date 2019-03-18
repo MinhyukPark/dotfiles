@@ -9,7 +9,6 @@ set scrolloff=5
 set termguicolors
 let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 1
-colorscheme monokai
 
 "vim latex things
 let g:vimtex_view_general_viewer = 'chromium'
@@ -100,6 +99,7 @@ Plugin 'tpope/vim-commentary'
 call vundle#end()
 filetype plugin on
 filetype indent off
+colorscheme monokai
 
 " paste things
 set viminfo='10000,<10000,s10000
