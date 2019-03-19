@@ -16,6 +16,7 @@ compinit
 # from ~/.bashrc
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+# End from ~/.bash rc
 
 # syntactic sugars
 alias ls='ls --color=auto'
@@ -23,7 +24,9 @@ alias lt='ls -l -t'
 alias ll='ls -l -h'
 alias lla='ls -l -a'
 alias restart='reboot'
-# End from ~/.bash rc
+alias sc='ag --nobreak --nonumbers --noheading . | fzf'
+alias sf=''
+
 
 # from arch  wiki 
 zstyle ':completion:*' rehash true
@@ -119,6 +122,8 @@ POWERLEVEL9K_VIRTUALENV_FOREGROUND=232
 
 eval $( dircolors -b $HOME/scripts/LS_COLORS )
 
+# interactive cd
+source /usr/share/zsh-interactive-cd.plugin.zsh
 # highlighters
 typeset -A ZSH_HIGHLIGHT_STYLES
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
