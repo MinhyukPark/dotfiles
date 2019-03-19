@@ -121,5 +121,5 @@ eval $( dircolors -b $HOME/scripts/LS_COLORS )
 
 # highlighters
 typeset -A ZSH_HIGHLIGHT_STYLES
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
