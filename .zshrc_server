@@ -37,6 +37,7 @@ POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='\uf054 '
 POWERLEVEL9K_MODE='nerdfont-complete'
 source /home/min/git_repos/powerlevel9k/powerlevel9k.zsh-theme
 
+
 # Powerline stuff
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
@@ -117,5 +118,7 @@ POWERLEVEL9K_VIRTUALENV_FOREGROUND=232
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval $( dircolors -b $HOME/scripts/LS_COLORS )
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# highlighters
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
