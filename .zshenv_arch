@@ -21,6 +21,7 @@ export JUPYTER_PATH=(/home/min/Downloads/python3-virtual_env /home/min/Downloads
 
 export GPG_TTY=$(tty)
 path+=$(ruby -e 'print Gem.user_dir')/bin
+path+="/home/min/Downloads/node_modules"
 export GEM_HOME=$HOME/.gem 
 ld_library_path=(/usr/lib $ld_library_path)
 
