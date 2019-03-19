@@ -28,6 +28,8 @@ alias spotify='spotify &; disown'
 alias netflix='google-chrome-stable -app=https://www.netflix.com'
 alias hulu='google-chrome-stable -app=https://www.hulu.com'
 alias restart='reboot'
+alias sc='ag --nobreak --noheading . | fzf'
+alias sf='fzf --preview="head -$LINES {}"'
 # End from ~/.bash rc
 
 # from arch  wiki 
