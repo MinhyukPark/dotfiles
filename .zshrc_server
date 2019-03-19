@@ -24,7 +24,7 @@ alias lt='ls -l -t'
 alias ll='ls -l -h'
 alias lla='ls -l -a'
 alias restart='reboot'
-alias sc='ag --nobreak --nonumbers --noheading . | fzf --preview="head -$LINES {}"'
+alias sc='ag --nobreak --nonumbers --noheading . | fzf'
 alias sf='fzf --preview="head -$LINES {}"'
 
 
