@@ -57,10 +57,10 @@ background = rgba(63, 63, 63, 0.9)
 
 # Colors from color0 to color254 can be set
 color0 = #3f3f3f
-color1 = #705050
+color1 = #ff0000
 color2 = #60b48a
 color3 = #dfaf8f
-color4 = #506070
+color4 = #c9e3fc
 color5 = #dc8cc3
 color6 = #8cd0d3
 color7 = #dcdccc
