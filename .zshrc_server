@@ -120,5 +120,8 @@ POWERLEVEL9K_VIRTUALENV_FOREGROUND=232
 eval $( dircolors -b $HOME/scripts/LS_COLORS )
 
 # highlighters
+typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=magenta, bold'
+
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
