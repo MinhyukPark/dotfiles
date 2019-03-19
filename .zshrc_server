@@ -117,7 +117,7 @@ POWERLEVEL9K_VIRTUALENV_FOREGROUND=232
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval $( dircolors -b $HOME/scripts/LS_COLORS )
+#eval $( dircolors -b $HOME/scripts/LS_COLORS )
 
 # highlighters
 typeset -A ZSH_HIGHLIGHT_STYLES
