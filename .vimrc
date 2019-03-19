@@ -3,8 +3,11 @@ syntax enable
 set tabstop=4
 set shiftwidth=4
 set expandtab
-" scrolling things
+set smarttab
+
+"scrolling things
 set scrolloff=5
+
 "monokai things
 set termguicolors
 let g:monokai_term_italic = 1
@@ -33,7 +36,7 @@ let g:lightline = {
       \ },
       \ }
 
-" fzf stuff
+"fzf things
 let g:fzf_layout = {'left': '50%'}
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
@@ -49,17 +52,8 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
-"Syntastic things
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
 
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-
-" incsearch things
+"incsearch things
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map <Tab> <Over>(incsearch-next)
@@ -73,15 +67,50 @@ let g:incsearch#highlight = {
 		\   }
 		\ }
 
+"lsp things
+let g:lsp_async_completion = 1
+let g:asyncomplete_smart_completion = 1
+let g:asyncomplete_auto_popup = 1
+imap <c-k> <Plug>(asyncomplete_force_refresh)
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+let g:lsp_signs_enabled = 1
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_signs_error = {'text': '✗'}
+let g:lsp_signs_warning = {'text': '⚠'}
+let g:lsp_signs_hint = {'text': 'Ⓘ'}
+let g:lsp_diagnostics_echo_cursor = 1
+if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
+if executable('clangd')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['clangd']},
+        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+        \ })
+endif
+
+"wordy things
+noremap <silent> <F11> :<C-u>NextWordy<cr>
+noremap <silent> <F12> :<C-u>PrevWordy<cr>
+
 "custom settings
 set number relativenumber
 set nu rnu
+nnoremap <silent> <C-f> :FZF<CR>
+
 " Vundle things
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'crusoexia/vim-monokai'
 Plugin 'Chiel92/vim-autoformat'
@@ -93,13 +122,20 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'lervag/vimtex'
 Plugin 'tpope/vim-commentary'
+Plugin 'airblade/vim-rooter'
+Plugin 'prabirshrestha/async.vim'
+Plugin 'prabirshrestha/vim-lsp'
+Plugin 'prabirshrestha/asyncomplete.vim'
+Plugin 'prabirshrestha/asyncomplete-lsp.vim'
+Plugin 'reedes/vim-wordy'
 "Plugin 'xuhdev/vim-latex-live-preview'
 "Plugin 'scrooloose/syntastic'
-
 call vundle#end()
 filetype plugin on
 filetype indent off
+
 colorscheme monokai
+
 
 " paste things
 set viminfo='10000,<10000,s10000
