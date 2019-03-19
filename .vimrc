@@ -97,6 +97,10 @@ if executable('clangd')
         \ })
 endif
 
+nnoremap mR :LspRename<CR>
+nnoremap md :LspDefinition<CR>
+nnoremap mD :LspDeclaration<CR>
+
 "wordy things
 noremap <silent> <F11> :<C-u>NextWordy<cr>
 noremap <silent> <F12> :<C-u>PrevWordy<cr>
