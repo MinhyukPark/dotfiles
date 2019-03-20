@@ -108,6 +108,8 @@ POWERLEVEL9K_VI_COMMAND_MODE_STRING='normal o w o'
 POWERLEVEL9K_VIRTUALENV_BACKGROUND=168
 POWERLEVEL9K_VIRTUALENV_FOREGROUND=251
 
+# interactive cd
+source /usr/share/zsh-interactive-cd.plugin.zsh
 
 eval $( dircolors -b $HOME/Downloads/scripts/LS_COLORS )
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
