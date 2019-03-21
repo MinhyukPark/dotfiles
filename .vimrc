@@ -37,6 +37,7 @@ let g:lightline = {
       \ }
 
 "fzf things
+nnoremap <silent> <C-f> :FZF<CR>
 let g:fzf_layout = {'left': '50%'}
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
@@ -78,6 +79,9 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 let g:lsp_signs_enabled = 1
 let g:lsp_diagnostics_enabled = 1
+let g:lsp_log_verbose = 1
+let g:lsp_log_file= expand('~/lsp.log')
+let g:asyncomplete_log_file=expand('~/asy.log')
 let g:lsp_signs_error = {'text': '✗'}
 let g:lsp_signs_warning = {'text': '⚠'}
 let g:lsp_signs_hint = {'text': 'Ⓘ'}
@@ -96,10 +100,47 @@ if executable('clangd')
         \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
         \ })
 endif
+if executable('typescript-language-server')
+    au User lsp_setup call lsp#register_server({
+      \ 'name': 'javascript support using typescript-language-server',
+      \ 'cmd': { server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+      \ 'whitelist': ['javascript', 'javascript.jsx']
+      \ })
+endif
+if executable('html-languageserver')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'html language server',
+        \ 'cmd': { server_info->[&shell, &shellcmdflag, 'html-languageserver --stdio']},
+        \ 'whitelist': ['html'],
+        \ })
+endif
+if executable('css-languageserver')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'css language server',
+        \ 'cmd': { server_info->[&shell, &shellcmdflag, 'css-languageserver --stdio']},
+        \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
+        \ 'whitelist': ['css'],
+        \ })
+endif
+if executable('json-languageserver')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'json language server',
+        \ 'cmd': { server_info->[&shell, &shellcmdflag, 'json-languageserver --stdio']},
+        \ 'whitelist': ['json'],
+        \ })
+endif
+" if executable('latex_language_server')
+"     au User lsp_setup call lsp#register_server({
+"       \ 'name': 'Latex server',
+"       \ 'cmd': { server_info->['latex_language_server']},
+"       \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
+"       \ 'whitelist': ['latex', 'tex', 'bib']
+"       \ })
+" endif
 
-nnoremap mR :LspRename<CR>
-nnoremap md :LspDefinition<CR>
-nnoremap mD :LspDeclaration<CR>
+nnoremap cR :LspRename<CR>
+nnoremap cd :LspDefinition<CR>
+nnoremap cD :LspDeclaration<CR>
 
 "wordy things
 noremap <silent> <F11> :<C-u>NextWordy<cr>
@@ -108,7 +149,6 @@ noremap <silent> <F12> :<C-u>PrevWordy<cr>
 "custom settings
 set number relativenumber
 set nu rnu
-nnoremap <silent> <C-f> :FZF<CR>
 
 " Vundle things
 set nocompatible
@@ -132,7 +172,6 @@ Plugin 'prabirshrestha/vim-lsp'
 Plugin 'prabirshrestha/asyncomplete.vim'
 Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 Plugin 'reedes/vim-wordy'
-Plugin 'gorodinskiy/vim-coloresque'
 "Plugin 'xuhdev/vim-latex-live-preview'
 "Plugin 'scrooloose/syntastic'
 call vundle#end()
