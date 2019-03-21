@@ -143,8 +143,8 @@ nnoremap cd :LspDefinition<CR>
 nnoremap cD :LspDeclaration<CR>
 
 "wordy things
-noremap <silent> <F11> :<C-u>NextWordy<cr>
-noremap <silent> <F12> :<C-u>PrevWordy<cr>
+noremap <silent> <F11> :<C-u>PrevWordy<cr>
+noremap <silent> <F12> :<C-u>NextWordy<cr>
 noremap <silent> <F9> [s
 noremap <silent> <F10> ]s
 let g:wordy#ring = [
