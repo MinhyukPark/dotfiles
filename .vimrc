@@ -146,6 +146,12 @@ nnoremap cD :LspDeclaration<CR>
 noremap <silent> <F11> :<C-u>NextWordy<cr>
 noremap <silent> <F12> :<C-u>PrevWordy<cr>
 
+"livedown things
+let g:livedown_browser = "chromium"
+let g:livedown_port ="7123"
+let g:livedown_open = 1
+let g:livedown_autorun = 1
+
 "custom settings
 set number relativenumber
 set nu rnu
