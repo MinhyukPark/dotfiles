@@ -149,6 +149,7 @@ noremap <silent> <F12> :<C-u>PrevWordy<cr>
 "custom settings
 set number relativenumber
 set nu rnu
+noremap <C-h> :noh<CR>
 
 " Vundle things
 set nocompatible
