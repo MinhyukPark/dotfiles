@@ -149,7 +149,7 @@ noremap <silent> <F12> :<C-u>PrevWordy<cr>
 "livedown things
 let g:livedown_browser = "chromium"
 let g:livedown_port ="7123"
-let g:livedown_open = 1
+let g:livedown_open = 0 
 let g:livedown_autorun = 1
 
 "custom settings
