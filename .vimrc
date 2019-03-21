@@ -147,6 +147,15 @@ noremap <silent> <F11> :<C-u>NextWordy<cr>
 noremap <silent> <F12> :<C-u>PrevWordy<cr>
 noremap <silent> <F9> [s
 noremap <silent> <F10> ]s
+let g:wordy#ring = [
+  \ ['weak', 'being', 'passive-voice'],
+  \ ['business-jargon', 'art-jargon', 'puffery'],
+  \ 'weasel',
+  \ ['problematic', 'redundant', ],
+  \ ['colloquial', 'idiomatic', 'similies', ],
+  \ ['contractions', 'opinion', 'vague-time', 'said-synonyms', ],
+  \ ['adjectives', 'adverbs'],
+  \ ]
 
 
 "livedown things
