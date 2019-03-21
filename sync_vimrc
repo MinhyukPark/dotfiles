@@ -1,4 +1,5 @@
 #!/bin/bash
-cp ./.vimrc ~/.vimrc
+cp ./.vimrc ~/.vimrc_copy
+mv ~/.vimrc_copy ~/.vimrc
 rm ./.vimrc
 ln ~/.vimrc ./.vimrc
