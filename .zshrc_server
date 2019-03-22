@@ -18,6 +18,7 @@ compinit
 [[ $- != *i* ]] && return
 # End from ~/.bash rc
 
+
 # syntactic sugars
 alias ls='ls --color=auto'
 alias lt='ls -l -t'
