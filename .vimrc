@@ -14,7 +14,7 @@ let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 1
 
 "vim latex things
-let g:vimtex_compiler_method = 'latexrun'
+let g:vimtex_compiler_method = 'latexmk'
 let maplocalleader = ','
 
 "lightline things
