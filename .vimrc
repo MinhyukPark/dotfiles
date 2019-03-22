@@ -81,8 +81,8 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 let g:lsp_signs_enabled = 1
 let g:lsp_diagnostics_enabled = 1
 let g:lsp_log_verbose = 1
-let g:lsp_log_file= expand('~/lsp.log')
-let g:asyncomplete_log_file=expand('~/asy.log')
+let g:lsp_log_file= expand('/var/log/lsp.log')
+let g:asyncomplete_log_file=expand('/var/log/asy.log')
 let g:lsp_signs_error = {'text': '✗'}
 let g:lsp_signs_warning = {'text': '⚠'}
 let g:lsp_signs_hint = {'text': 'Ⓘ'}
