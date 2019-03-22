@@ -28,6 +28,11 @@ ld_library_path=(/usr/lib $ld_library_path)
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
+<<<<<<< HEAD
+=======
+export CS125READ_PASS='***REMOVED***'
+
+>>>>>>> aa01d514a22d3eae900b6dc65414a5cc56262d8f
 # opam configuration
 test -r /home/min/.opam/opam-init/init.zsh && . /home/min/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
