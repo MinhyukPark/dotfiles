@@ -9,7 +9,7 @@ set smarttab
 set scrolloff=5
 
 "monokai things
-set termguicolors
+set notermguicolors
 let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 1
 
