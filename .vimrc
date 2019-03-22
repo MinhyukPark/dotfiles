@@ -15,6 +15,7 @@ let g:monokai_gui_italic = 1
 
 "vim latex things
 let g:vimtex_view_general_viewer = 'chromium'
+let g:vimtex_compiler_method = 'latexrun'
 let maplocalleader = ','
 
 "lightline things
