@@ -5,7 +5,10 @@ typeset -U infopath
 setopt histignorespace
 
 export GPG_TTY=$(tty)
-export PATH=/home/min/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+export TERM=xterm-termite
+
+export XAUTHORITY=$HOME/.Xauthority
 
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
