@@ -159,10 +159,10 @@ nnoremap cD :LspDeclaration<CR>
 "  \ ]
 
 " grammarous things
-noremap <F11> :GrammarousCheck<CR>
-noremap <F12> :GrammarousReset<CR>
-noremap <F10> <Plug>(grammarous-open-info-window)
-let g:grammarous#show_first_error = 1
+" noremap <F11> :GrammarousCheck<CR>
+" noremap <F12> :GrammarousReset<CR>
+" noremap <F10> <Plug>(grammarous-open-info-window)
+" let g:grammarous#show_first_error = 1
 
 
 "livedown things
@@ -204,7 +204,7 @@ Plugin 'prabirshrestha/async.vim'
 Plugin 'prabirshrestha/vim-lsp'
 Plugin 'prabirshrestha/asyncomplete.vim'
 Plugin 'prabirshrestha/asyncomplete-lsp.vim'
-Plugin 'rhysd/vim-grammarous'
+" Plugin 'rhysd/vim-grammarous'
 " Plugin 'reedes/vim-wordy'
 Plugin 'shime/vim-livedown'
 "Plugin 'xuhdev/vim-latex-live-preview'
