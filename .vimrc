@@ -162,6 +162,7 @@ nnoremap cD :LspDeclaration<CR>
 noremap <F11> :GrammarousCheck<CR>
 noremap <F12> :GrammarousReset<CR>
 noremap <F10> <Plug>(grammarous-open-info-window)
+let g:grammarous#show_first_error = 1
 
 
 "livedown things
@@ -177,10 +178,10 @@ set nu rnu
 "" no hightlight
 noremap <C-h> :noh<CR>
 "" spelling
-" noremap <F9> :hi clear SpellBad<CR> <bar> :setlocal spell!<CR> <bar> :hi SpellBad cterm=underline,bold ctermfg=red<CR>
-noremap <F9> :setlocal spell!<CR> 
-hi clear SpellBad
-hi SpellBad cterm=underline,bold ctermfg=red
+noremap <F9> :hi clear SpellBad<CR> <bar> :setlocal spell!<CR> <bar> :hi SpellBad cterm=underline,bold ctermfg=red<CR>
+" noremap <F9> :setlocal spell!<CR> 
+" hi clear SpellBad
+" hi SpellBad cterm=underline,bold ctermfg=red
 
 " Vundle things
 set nocompatible
