@@ -161,6 +161,7 @@ nnoremap cD :LspDeclaration<CR>
 " grammarous things
 noremap <F11> :GrammarousCheck<CR>
 noremap <F12> :GrammarousReset<CR>
+noremap <F10> <Plug>(grammarous-open-info-window)
 
 
 "livedown things
