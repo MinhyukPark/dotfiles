@@ -177,8 +177,7 @@ set nu rnu
 "" no hightlight
 noremap <C-h> :noh<CR>
 "" spelling
-noremap <F10> :hi clear SpellBad<CR> <bar> :setlocal spell!<CR>
-hi SpellBad cterm=underline,bold ctermfg=red
+noremap <F10> :hi clear SpellBad<CR> <bar> :setlocal spell!<CR> <bar> :hi SpellBad cterm=underline,bold ctermfg=red<CR>
 
 
 " Vundle things
