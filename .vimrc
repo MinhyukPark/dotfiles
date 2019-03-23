@@ -160,6 +160,7 @@ nnoremap cD :LspDeclaration<CR>
 
 " grammarous things
 noremap <F11> :GrammarousCheck<CR>
+noremap <F12> :GrammarousReset<CR>
 let g:grammarous#use_vim_spelllang = 1
 
 
