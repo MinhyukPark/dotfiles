@@ -143,20 +143,24 @@ nnoremap cR :LspRename<CR>
 nnoremap cd :LspDefinition<CR>
 nnoremap cD :LspDeclaration<CR>
 
-"wordy things
-noremap <silent> <F11> :<C-u>PrevWordy<cr>
-noremap <silent> <F12> :<C-u>NextWordy<cr>
-noremap <silent> <F9> [s
-noremap <silent> <F10> ]s
-let g:wordy#ring = [
-  \ ['weak', 'being', 'passive-voice'],
-  \ ['business-jargon', 'art-jargon', 'puffery'],
-  \ 'weasel',
-  \ ['problematic', 'redundant', ],
-  \ ['colloquial', 'idiomatic', 'similies', ],
-  \ ['contractions', 'opinion', 'vague-time', 'said-synonyms', ],
-  \ ['adjectives', 'adverbs'],
-  \ ]
+""wordy things
+"noremap <silent> <F11> :<C-u>PrevWordy<cr>
+"noremap <silent> <F12> :<C-u>NextWordy<cr>
+"noremap <silent> <F9> [s
+"noremap <silent> <F10> ]s
+"let g:wordy#ring = [
+"  \ ['weak', 'being', 'passive-voice'],
+"  \ ['business-jargon', 'art-jargon', 'puffery'],
+"  \ 'weasel',
+"  \ ['problematic', 'redundant', ],
+"  \ ['colloquial', 'idiomatic', 'similies', ],
+"  \ ['contractions', 'opinion', 'vague-time', 'said-synonyms', ],
+"  \ ['adjectives', 'adverbs'],
+"  \ ]
+
+" grammarous things
+noremap <F11> :GrammarousCheck<CR>
+let g:grammarous#use_vim_spelllang = 1
 
 
 "livedown things
