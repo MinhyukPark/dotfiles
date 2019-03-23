@@ -30,7 +30,7 @@ alias hulu='google-chrome-stable -app=https://www.hulu.com'
 alias restart='reboot'
 alias sc='ag --nobreak --noheading . | fzf'
 alias sf='fzf --preview="head -$LINES {}"'
-alias mosh='mosh --no-init --predict=never'
+alias mosh='mosh --predict=never'
 # End from ~/.bash rc
 
 # from arch  wiki 
