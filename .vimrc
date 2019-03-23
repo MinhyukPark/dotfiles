@@ -164,7 +164,9 @@ nnoremap cD :LspDeclaration<CR>
 " noremap <F10> <Plug>(grammarous-open-info-window)
 " let g:grammarous#show_first_error = 1
 " language tool things
-:let g:languagetool_jar='$HOME/.vim/languagetool/languagetool-commandline.jar'
+let g:languagetool_jar='$HOME/.vim/languagetool/languagetool-commandline.jar'
+noremap <F11> :LanguageToolCheck<CR>
+noremap <F12> :LanguageToolClear<CR>
 
 "livedown things
 let g:livedown_browser = "chromium"
