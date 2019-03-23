@@ -179,9 +179,9 @@ let g:livedown_autorun = 1
 set number relativenumber
 set nu rnu
 "" no hightlight
-noremap <C-h> :noh<CR>
+" noremap <C-H> :noh<CR>
 "" spelling
-noremap <silent> <F9> : call SpellHighlight()<CR>
+noremap <silent> <C-h> : call SpellHighlight()<CR>
 function! SpellHighlight()
     hi clear SpellBad
     hi clear SpellCap
