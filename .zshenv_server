@@ -6,6 +6,7 @@ setopt histignorespace
 
 export GPG_TTY=$(tty)
 export PATH=$HOME/.local/bin:$PATH
+export GOPATH=/opt/go
 export TERM=xterm-termite
 
 export XAUTHORITY=$HOME/.Xauthority
