@@ -178,6 +178,9 @@ set nu rnu
 noremap <C-h> :noh<CR>
 "" spelling
 noremap <F10> :setlocal spell!<CR>
+hi clear SpellBad
+hi SpellBad cterm=underline,bold ctermfg=red
+
 
 " Vundle things
 set nocompatible
