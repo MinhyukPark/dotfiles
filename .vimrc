@@ -181,7 +181,15 @@ set nu rnu
 "" no hightlight
 noremap <C-h> :noh<CR>
 "" spelling
-noremap <silent> <F9> :hi clear SpellBad<CR> <bar> :setlocal spell!<CR> <bar> :hi SpellBad cterm=underline,bold ctermfg=red<CR>
+noremap <silent> <F9> :!SpellHighlight<CR>
+function! SpellHighlight()
+    hi clear SpellBad
+    hi clear SpellCap
+    setlocal spell!
+    hi SpellBad cterm=underline,bold ctermfg=red
+    hi SpellBad cterm=underline,bold ctermfg=blue
+endfunction
+
 " noremap <F9> :setlocal spell!<CR> 
 " hi clear SpellBad
 " hi SpellBad cterm=underline,bold ctermfg=red
