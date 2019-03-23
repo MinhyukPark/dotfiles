@@ -164,9 +164,9 @@ nnoremap cD :LspDeclaration<CR>
 " noremap <F10> <Plug>(grammarous-open-info-window)
 " let g:grammarous#show_first_error = 1
 " language tool things
-let g:languagetool_jar='$HOME/.vim/languagetool/LanguageTool-4.4/languagetool-commandline.jar'
-noremap <F11> :LanguageToolCheck<CR>
-noremap <F12> :LanguageToolClear<CR>
+" let g:languagetool_jar='$HOME/.vim/languagetool/LanguageTool-4.4/languagetool-commandline.jar'
+" noremap <F11> :LanguageToolCheck<CR>
+" noremap <F12> :LanguageToolClear<CR>
 
 "livedown things
 let g:livedown_browser = "chromium"
@@ -209,7 +209,7 @@ Plugin 'prabirshrestha/asyncomplete.vim'
 Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 " Plugin 'rhysd/vim-grammarous'
 " Plugin 'reedes/vim-wordy'
-Plugin 'dpelle/vim-LanguageTool'
+" Plugin 'dpelle/vim-LanguageTool'
 Plugin 'shime/vim-livedown'
 "Plugin 'xuhdev/vim-latex-live-preview'
 "Plugin 'scrooloose/syntastic'
