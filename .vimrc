@@ -171,9 +171,14 @@ let g:livedown_open = 0
 let g:livedown_autorun = 1
 
 "custom settings
+"" lineno
 set number relativenumber
 set nu rnu
+"" no hightlight
 noremap <C-h> :noh<CR>
+"" spelling
+noremap <F10> :setlocal spell!<CR>
+noremap <F9> Z=
 
 " Vundle things
 set nocompatible
