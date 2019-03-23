@@ -163,7 +163,8 @@ nnoremap cD :LspDeclaration<CR>
 " noremap <F12> :GrammarousReset<CR>
 " noremap <F10> <Plug>(grammarous-open-info-window)
 " let g:grammarous#show_first_error = 1
-
+" language tool things
+:let g:languagetool_jar='$HOME/.vim/languagetool/languagetool-commandline.jar'
 
 "livedown things
 let g:livedown_browser = "chromium"
