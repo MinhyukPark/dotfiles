@@ -9,12 +9,13 @@ set smarttab
 set scrolloff=5
 
 "monokai things
-set termguicolors
+set notermguicolors
 let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 1
 
 "vim latex things
-let g:vimtex_view_general_viewer = 'chromium'
+let g:vimtex_compiler_method = 'latexmk'
+let g:vimtex_quickfix_method = 'pplatex'
 let maplocalleader = ','
 
 "lightline things
@@ -80,8 +81,8 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 let g:lsp_signs_enabled = 1
 let g:lsp_diagnostics_enabled = 1
 let g:lsp_log_verbose = 1
-let g:lsp_log_file= expand('~/lsp.log')
-let g:asyncomplete_log_file=expand('~/asy.log')
+let g:lsp_log_file= expand('/var/log/lsp.log')
+let g:asyncomplete_log_file=expand('/var/log/asy.log')
 let g:lsp_signs_error = {'text': '✗'}
 let g:lsp_signs_warning = {'text': '⚠'}
 let g:lsp_signs_hint = {'text': 'Ⓘ'}
@@ -142,21 +143,30 @@ nnoremap cR :LspRename<CR>
 nnoremap cd :LspDefinition<CR>
 nnoremap cD :LspDeclaration<CR>
 
-"wordy things
-noremap <silent> <F11> :<C-u>PrevWordy<cr>
-noremap <silent> <F12> :<C-u>NextWordy<cr>
-noremap <silent> <F9> [s
-noremap <silent> <F10> ]s
-let g:wordy#ring = [
-  \ ['weak', 'being', 'passive-voice'],
-  \ ['business-jargon', 'art-jargon', 'puffery'],
-  \ 'weasel',
-  \ ['problematic', 'redundant', ],
-  \ ['colloquial', 'idiomatic', 'similies', ],
-  \ ['contractions', 'opinion', 'vague-time', 'said-synonyms', ],
-  \ ['adjectives', 'adverbs'],
-  \ ]
+""wordy things
+"noremap <silent> <F11> :<C-u>PrevWordy<cr>
+"noremap <silent> <F12> :<C-u>NextWordy<cr>
+"noremap <silent> <F9> [s
+"noremap <silent> <F10> ]s
+"let g:wordy#ring = [
+"  \ ['weak', 'being', 'passive-voice'],
+"  \ ['business-jargon', 'art-jargon', 'puffery'],
+"  \ 'weasel',
+"  \ ['problematic', 'redundant', ],
+"  \ ['colloquial', 'idiomatic', 'similies', ],
+"  \ ['contractions', 'opinion', 'vague-time', 'said-synonyms', ],
+"  \ ['adjectives', 'adverbs'],
+"  \ ]
 
+" grammarous things
+" noremap <F11> :GrammarousCheck<CR>
+" noremap <F12> :GrammarousReset<CR>
+" noremap <F10> <Plug>(grammarous-open-info-window)
+" let g:grammarous#show_first_error = 1
+" language tool things
+" let g:languagetool_jar='$HOME/.vim/languagetool/LanguageTool-4.4/languagetool-commandline.jar'
+" noremap <F11> :LanguageToolCheck<CR>
+" noremap <F12> :LanguageToolClear<CR>
 
 "livedown things
 let g:livedown_browser = "chromium"
@@ -165,9 +175,24 @@ let g:livedown_open = 0
 let g:livedown_autorun = 1
 
 "custom settings
+"" lineno
 set number relativenumber
 set nu rnu
-noremap <C-h> :noh<CR>
+"" no hightlight
+" noremap <C-H> :noh<CR>
+"" spelling
+noremap <silent> <C-h> : call SpellHighlight()<CR>
+function! SpellHighlight()
+    hi clear SpellBad
+    hi clear SpellCap
+    setlocal spell!
+    hi SpellBad cterm=underline,bold ctermfg=red
+    hi SpellCap cterm=underline,bold ctermfg=blue
+endfunction
+
+" noremap <F9> :setlocal spell!<CR> 
+" hi clear SpellBad
+" hi SpellBad cterm=underline,bold ctermfg=red
 
 " Vundle things
 set nocompatible
@@ -190,7 +215,9 @@ Plugin 'prabirshrestha/async.vim'
 Plugin 'prabirshrestha/vim-lsp'
 Plugin 'prabirshrestha/asyncomplete.vim'
 Plugin 'prabirshrestha/asyncomplete-lsp.vim'
-Plugin 'reedes/vim-wordy'
+" Plugin 'rhysd/vim-grammarous'
+" Plugin 'reedes/vim-wordy'
+" Plugin 'dpelle/vim-LanguageTool'
 Plugin 'shime/vim-livedown'
 "Plugin 'xuhdev/vim-latex-live-preview'
 "Plugin 'scrooloose/syntastic'
