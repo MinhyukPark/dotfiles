@@ -112,5 +112,5 @@ POWERLEVEL9K_VIRTUALENV_FOREGROUND=251
 # interactive cd
 source /usr/share/zsh-interactive-cd.plugin.zsh
 
-eval $( dircolors -b $HOME/Downloads/scripts/LS_COLORS )
+eval $( dircolors -b $HOME/scripts/LS_COLORS )
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
