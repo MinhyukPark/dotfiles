@@ -17,7 +17,8 @@ let g:monokai_gui_italic = 1
 let g:vimtex_compiler_method = 'latexmk'
 let g:vimtex_quickfix_method = 'pplatex'
 " let maplocalleader = ','
-nnoremap <C-l> /ll 
+nnoremap <silent><C-l> \ll<CR>
+nnoremap <silent><C-e> \le<CR>
 
 "lightline things
 set laststatus=2
