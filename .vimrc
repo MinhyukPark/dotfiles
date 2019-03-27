@@ -11,12 +11,11 @@ set smartindent
 set scrolloff=5
 
 "monokai things
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
 let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 1
-" set Vim-specific sequences for RGB colors
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 "vim latex things
 let g:vimtex_compiler_method = 'latexmk'
