@@ -10,10 +10,6 @@ set smartindent
 "scrolling things
 set scrolloff=5
 
-"hexokinase things
-let g:Hexokinase_highlighters = ['sign_column']
-let g:Hexokinase_ftAutoload = ['*']
-highlight clear SignColumn
 
 "monokai things
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -241,6 +237,10 @@ filetype indent off
 
 colorscheme monokai
 
+"hexokinase things
+let g:Hexokinase_highlighters = ['sign_column']
+" let g:Hexokinase_ftAutoload = ['*']
+highlight clear SignColumn
 
 " paste things
 set viminfo='10000,<10000,s10000
