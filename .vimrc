@@ -21,6 +21,7 @@ set termguicolors
 let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 1
 
+
 "vim latex things
 let g:vimtex_compiler_method = 'latexmk'
 let g:vimtex_quickfix_method = 'pplatex'
