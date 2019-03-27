@@ -10,6 +10,9 @@ set smartindent
 "scrolling things
 set scrolloff=5
 
+"hexokinase things
+let g:Hexokinase_highlighters = ['sign_column']
+
 "monokai things
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
