@@ -238,7 +238,7 @@ colorscheme monokai
 
 "hexokinase things
 let g:Hexokinase_highlighters = ['sign_column']
-let g:Hexokinase_ftAutoload = ['*']
+let g:Hexokinase_ftAutoload = ['css']
 highlight clear SignColumn
 
 " paste things
