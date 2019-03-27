@@ -191,6 +191,8 @@ function! SpellHighlight()
     hi SpellBad cterm=underline,bold ctermfg=red
     hi SpellCap cterm=underline,bold ctermfg=blue
 endfunction
+"display
+set display+=lastline
 
 " noremap <F9> :setlocal spell!<CR> 
 " hi clear SpellBad
