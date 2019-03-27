@@ -223,7 +223,7 @@ Plugin 'prabirshrestha/async.vim'
 Plugin 'prabirshrestha/vim-lsp'
 Plugin 'prabirshrestha/asyncomplete.vim'
 Plugin 'prabirshrestha/asyncomplete-lsp.vim'
-Plugin 'RRethy/vim-hexokinase'
+" Plugin 'RRethy/vim-hexokinase'
 " Plugin 'rhysd/vim-grammarous'
 " Plugin 'reedes/vim-wordy'
 " Plugin 'dpelle/vim-LanguageTool'
@@ -236,9 +236,6 @@ filetype indent off
 
 colorscheme monokai
 
-"hexokinase things
-let g:Hexokinase_highlighters = ['virtual']
-let g:Hexokinase_ftAutoload = ['css']
 highlight clear SignColumn
 
 " paste things
