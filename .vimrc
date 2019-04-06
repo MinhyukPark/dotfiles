@@ -186,25 +186,6 @@ let g:livedown_port ="7123"
 let g:livedown_open = 0 
 let g:livedown_autorun = 1
 
-"custom settings
-"status line
-set noshowmode
-"" lineno
-set number relativenumber
-set nu rnu
-"" no hightlight
-" noremap <C-H> :noh<CR>
-"" spelling
-noremap <silent> <C-h> : call SpellHighlight()<CR>
-function! SpellHighlight()
-    hi clear SpellBad
-    hi clear SpellCap
-    setlocal spell!
-    hi SpellBad cterm=underline,bold ctermfg=red
-    hi SpellCap cterm=underline,bold ctermfg=blue
-endfunction
-"display
-set display+=lastline
 
 " noremap <F9> :setlocal spell!<CR> 
 " hi clear SpellBad
@@ -245,6 +226,26 @@ filetype plugin on
 filetype indent off
 
 colorscheme monokai
+
+"custom settings
+"status line
+set noshowmode
+"" lineno
+set number relativenumber
+set nu rnu
+"" no hightlight
+" noremap <C-H> :noh<CR>
+"" spelling
+noremap <silent> <C-h> : call SpellHighlight()<CR>
+function! SpellHighlight()
+    hi clear SpellBad
+    hi clear SpellCap
+    setlocal spell!
+    hi SpellBad cterm=underline,bold ctermfg=red
+    hi SpellCap cterm=underline,bold ctermfg=blue
+endfunction
+"display
+set display+=lastline
 
 highlight clear SignColumn
 
