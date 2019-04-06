@@ -12,6 +12,8 @@ set scrolloff=5
 
 "vista things
 let g:vista_default_executive = 'vim_lsp'
+let g:vista_fzf_preview = ['right:30%']
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 
 
 "monokai things
