@@ -7,6 +7,8 @@ set smarttab
 set autoindent
 set smartindent
 
+
+
 "scrolling things
 set scrolloff=5
 
@@ -185,6 +187,8 @@ let g:livedown_open = 0
 let g:livedown_autorun = 1
 
 "custom settings
+"status line
+set noshowmode
 "" lineno
 set number relativenumber
 set nu rnu
