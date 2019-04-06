@@ -228,6 +228,7 @@ Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 " Plugin 'reedes/vim-wordy'
 " Plugin 'dpelle/vim-LanguageTool'
 Plugin 'shime/vim-livedown'
+Plugin 'liuchengxu/vista.vim'
 "Plugin 'xuhdev/vim-latex-live-preview'
 "Plugin 'scrooloose/syntastic'
 call vundle#end()
