@@ -144,14 +144,14 @@ if executable('json-languageserver')
         \ 'whitelist': ['json'],
         \ })
 endif
-" if executable('latex_language_server')
-"     au User lsp_setup call lsp#register_server({
-"       \ 'name': 'Latex server',
-"       \ 'cmd': { server_info->['latex_language_server']},
-"       \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
-"       \ 'whitelist': ['latex', 'tex', 'bib']
-"       \ })
-" endif
+if executable('latex_language_server')
+    au User lsp_setup call lsp#register_server({
+      \ 'name': 'Latex server',
+      \ 'cmd': { server_info->['latex_language_server']},
+      \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
+      \ 'whitelist': ['latex', 'tex', 'bib']
+      \ })
+endif
 
 nnoremap cR :LspRename<CR>
 nnoremap cd :LspDefinition<CR>
