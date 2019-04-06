@@ -11,6 +11,8 @@ set smartindent
 
 "scrolling things
 set scrolloff=5
+" paste things
+set viminfo='10000,<10000,s10000
 
 "vista things
 " let g:vista_default_executive = 'vim_lsp'
@@ -246,8 +248,5 @@ function! SpellHighlight()
 endfunction
 "display
 set display+=lastline
-
+"sign column color
 highlight clear SignColumn
-
-" paste things
-set viminfo='10000,<10000,s10000
