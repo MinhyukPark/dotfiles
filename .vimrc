@@ -11,9 +11,9 @@ set smartindent
 set scrolloff=5
 
 "vista things
-let g:vista_default_executive = 'vim_lsp'
-let g:vista_fzf_preview = ['right:30%']
-let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+" let g:vista_default_executive = 'vim_lsp'
+" let g:vista_fzf_preview = ['right:30%']
+" let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 
 
 "monokai things
@@ -233,7 +233,7 @@ Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 " Plugin 'reedes/vim-wordy'
 " Plugin 'dpelle/vim-LanguageTool'
 Plugin 'shime/vim-livedown'
-Plugin 'liuchengxu/vista.vim'
+" Plugin 'liuchengxu/vista.vim'
 "Plugin 'xuhdev/vim-latex-live-preview'
 "Plugin 'scrooloose/syntastic'
 call vundle#end()
