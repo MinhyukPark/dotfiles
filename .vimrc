@@ -10,6 +10,9 @@ set smartindent
 "scrolling things
 set scrolloff=5
 
+"vista things
+let g:vista_default_executive = 'vim_lsp'
+
 
 "monokai things
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
