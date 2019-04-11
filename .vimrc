@@ -108,10 +108,10 @@ if executable('pyls')
         \ 'whitelist': ['python'],
         \ })
 endif
-if executable('clangd')
+if executable('clangd-8')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'clangd',
-        \ 'cmd': {server_info->['clangd']},
+        \ 'cmd': {server_info->['clangd-8']},
         \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
         \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
         \ })
