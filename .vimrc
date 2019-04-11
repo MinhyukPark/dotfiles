@@ -158,19 +158,19 @@ nnoremap cd :LspDefinition<CR>
 nnoremap cD :LspDeclaration<CR>
 
 ""wordy things
-"noremap <silent> <F11> :<C-u>PrevWordy<cr>
-"noremap <silent> <F12> :<C-u>NextWordy<cr>
-"noremap <silent> <F9> [s
-"noremap <silent> <F10> ]s
-"let g:wordy#ring = [
-"  \ ['weak', 'being', 'passive-voice'],
-"  \ ['business-jargon', 'art-jargon', 'puffery'],
-"  \ 'weasel',
-"  \ ['problematic', 'redundant', ],
-"  \ ['colloquial', 'idiomatic', 'similies', ],
-"  \ ['contractions', 'opinion', 'vague-time', 'said-synonyms', ],
-"  \ ['adjectives', 'adverbs'],
-"  \ ]
+noremap <silent> <F11> :<C-u>PrevWordy<cr>
+noremap <silent> <F12> :<C-u>NextWordy<cr>
+noremap <silent> <F9> [s
+noremap <silent> <F10> ]s
+let g:wordy#ring = [
+  \ ['weak', 'being', 'passive-voice'],
+  \ ['business-jargon', 'art-jargon', 'puffery'],
+  \ 'weasel',
+  \ ['problematic', 'redundant', ],
+  \ ['colloquial', 'idiomatic', 'similies', ],
+  \ ['contractions', 'opinion', 'vague-time', 'said-synonyms', ],
+  \ ['adjectives', 'adverbs'],
+  \ ]
 
 " grammarous things
 " noremap <F11> :GrammarousCheck<CR>
@@ -216,7 +216,7 @@ Plugin 'prabirshrestha/asyncomplete.vim'
 Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 " Plugin 'RRethy/vim-hexokinase'
 " Plugin 'rhysd/vim-grammarous'
-" Plugin 'reedes/vim-wordy'
+Plugin 'reedes/vim-wordy'
 " Plugin 'dpelle/vim-LanguageTool'
 " Plugin 'severin-lemaignan/vim-minimap'
 " Plugin 'shime/vim-livedown'
