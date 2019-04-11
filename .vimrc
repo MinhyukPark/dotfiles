@@ -252,7 +252,7 @@ function! SpellHighlight()
     " hi SpellCap cterm=underline,bold ctermfg=blue
     " nvim
     setlocal spell!
-    hi SpellBad cterm=underline,bold ctermfg=red
+    hi SpellBad cterm=underline,bold ctermfg=red guifg=red
 endfunction
 "display
 set display+=lastline
