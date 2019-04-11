@@ -187,7 +187,7 @@ nnoremap cD :LspDeclaration<CR>
 " noremap <F12> :LanguageToolClear<CR>
 
 "livedown things
-" let g:livedown_browser = "chromium"
+" let g:livedown_browser = 'chromium'
 " let g:livedown_port ="7123"
 " let g:livedown_open = 0 
 " let g:livedown_autorun = 1
@@ -252,6 +252,7 @@ function! SpellHighlight()
     " hi SpellCap cterm=underline,bold ctermfg=blue
     " nvim
     setlocal spell!
+    hi SpellBad cterm=underline,bold ctermfg=red
 endfunction
 "display
 set display+=lastline
