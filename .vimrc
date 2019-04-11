@@ -112,6 +112,7 @@ if executable('clangd')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'clangd',
         \ 'cmd': {server_info->['clangd', '-background-index']},
+        \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
         \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
         \ })
 endif
@@ -119,6 +120,7 @@ if executable('typescript-language-server')
     au User lsp_setup call lsp#register_server({
       \ 'name': 'javascript support using typescript-language-server',
       \ 'cmd': { server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+      \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
       \ 'whitelist': ['js', 'javascript', 'javascript.jsx']
       \ })
 endif
@@ -126,6 +128,7 @@ if executable('html-languageserver')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'html language server',
         \ 'cmd': { server_info->[&shell, &shellcmdflag, 'html-languageserver --stdio']},
+        \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
         \ 'whitelist': ['html'],
         \ })
 endif
@@ -141,6 +144,7 @@ if executable('json-languageserver')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'json language server',
         \ 'cmd': { server_info->[&shell, &shellcmdflag, 'json-languageserver --stdio']},
+        \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
         \ 'whitelist': ['json'],
         \ })
 endif
