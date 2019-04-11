@@ -244,8 +244,13 @@ set nu rnu
 "" spelling
 noremap <silent> <C-h> : call SpellHighlight()<CR>
 function! SpellHighlight()
-    hi clear SpellBad
-    hi clear SpellCap
+    " vim
+    " hi clear SpellBad
+    " hi clear SpellCap
+    " setlocal spell!
+    " hi SpellBad cterm=underline,bold ctermfg=red
+    " hi SpellCap cterm=underline,bold ctermfg=blue
+    " nvim
     setlocal spell!
     hi SpellBad cterm=underline,bold ctermfg=red
     hi SpellCap cterm=underline,bold ctermfg=blue
