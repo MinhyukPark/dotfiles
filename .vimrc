@@ -219,7 +219,7 @@ Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 " Plugin 'reedes/vim-wordy'
 " Plugin 'dpelle/vim-LanguageTool'
 " Plugin 'severin-lemaignan/vim-minimap'
-Plugin 'shime/vim-livedown'
+" Plugin 'shime/vim-livedown'
 " Plugin 'liuchengxu/vista.vim'
 "Plugin 'xuhdev/vim-latex-live-preview'
 "Plugin 'scrooloose/syntastic'
@@ -249,4 +249,4 @@ endfunction
 "display
 set display+=lastline
 "sign column color
-highlight clear SignColumn
+" highlight clear SignColumn
