@@ -30,6 +30,8 @@ let g:monokai_gui_italic = 1
 "vim latex things
 let g:vimtex_compiler_method = 'latexmk'
 let g:vimtex_quickfix_method = 'pplatex'
+let g:vimtex_view_automatic = 0
+let g:vimtex_view_enabled = 0
 let maplocalleader = ','
 
 "lightline things
