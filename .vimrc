@@ -33,7 +33,6 @@ let g:vimtex_quickfix_method = 'pplatex'
 let g:vimtex_view_automatic = 0
 let g:vimtex_view_enabled = 0
 let maplocalleader = ','
-let mapleader = ','
 
 "lightline things
 set laststatus=2
