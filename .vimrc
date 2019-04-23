@@ -1,3 +1,39 @@
+" Vundle things
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'crusoexia/vim-monokai'
+Plugin 'Chiel92/vim-autoformat'
+"Plugin 'suan/vim-instant-markdown'
+Plugin 'junegunn/fzf'
+Plugin 'itchyny/lightline.vim'
+"Plugin 'tpope/vim-fugitive'
+Plugin 'junegunn/goyo.vim'
+Plugin 'haya14busa/incsearch.vim'
+Plugin 'lervag/vimtex'
+Plugin 'tpope/vim-commentary'
+Plugin 'airblade/vim-rooter'
+Plugin 'prabirshrestha/async.vim'
+Plugin 'prabirshrestha/vim-lsp'
+Plugin 'prabirshrestha/asyncomplete.vim'
+Plugin 'prabirshrestha/asyncomplete-lsp.vim'
+" Plugin 'RRethy/vim-hexokinase'
+" Plugin 'rhysd/vim-grammarous'
+" Plugin 'reedes/vim-wordy'
+" Plugin 'dpelle/vim-LanguageTool'
+" Plugin 'severin-lemaignan/vim-minimap'
+" Plugin 'shime/vim-livedown'
+" Plugin 'liuchengxu/vista.vim'
+"Plugin 'xuhdev/vim-latex-live-preview'
+"Plugin 'scrooloose/syntastic'
+call vundle#end()
+filetype plugin on
+filetype indent off
+
+colorscheme monokai
+
 syntax enable
 "tab things
 set tabstop=4
@@ -6,7 +42,6 @@ set expandtab
 set smarttab
 set autoindent
 set smartindent
-
 
 
 "scrolling things
@@ -199,41 +234,6 @@ nnoremap cD :LspDeclaration<CR>
 " hi clear SpellBad
 " hi SpellBad cterm=underline,bold ctermfg=red
 
-" Vundle things
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'crusoexia/vim-monokai'
-Plugin 'Chiel92/vim-autoformat'
-"Plugin 'suan/vim-instant-markdown'
-Plugin 'junegunn/fzf'
-Plugin 'itchyny/lightline.vim'
-"Plugin 'tpope/vim-fugitive'
-Plugin 'junegunn/goyo.vim'
-Plugin 'haya14busa/incsearch.vim'
-Plugin 'lervag/vimtex'
-Plugin 'tpope/vim-commentary'
-Plugin 'airblade/vim-rooter'
-Plugin 'prabirshrestha/async.vim'
-Plugin 'prabirshrestha/vim-lsp'
-Plugin 'prabirshrestha/asyncomplete.vim'
-Plugin 'prabirshrestha/asyncomplete-lsp.vim'
-" Plugin 'RRethy/vim-hexokinase'
-" Plugin 'rhysd/vim-grammarous'
-" Plugin 'reedes/vim-wordy'
-" Plugin 'dpelle/vim-LanguageTool'
-" Plugin 'severin-lemaignan/vim-minimap'
-" Plugin 'shime/vim-livedown'
-" Plugin 'liuchengxu/vista.vim'
-"Plugin 'xuhdev/vim-latex-live-preview'
-"Plugin 'scrooloose/syntastic'
-call vundle#end()
-filetype plugin on
-filetype indent off
-
-colorscheme monokai
 
 "custom settings
 "status line
@@ -261,3 +261,4 @@ endfunction
 set display+=lastline
 "sign column color
 " highlight clear SignColumn
+"
