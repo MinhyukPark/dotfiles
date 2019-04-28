@@ -130,10 +130,17 @@ let g:incsearch#highlight = {
 let g:lsp_async_completion = 1
 let g:asyncomplete_smart_completion = 1
 let g:asyncomplete_auto_popup = 1
-imap <c-k> <Plug>(asyncomplete_force_refresh)
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
+" imap <c-k> <Plug>(asyncomplete_force_refresh)
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ asyncomplete#force_refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 let g:lsp_signs_enabled = 1
 let g:lsp_diagnostics_enabled = 1
