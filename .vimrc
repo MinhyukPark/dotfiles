@@ -278,5 +278,5 @@ endfunction
 "display
 set display+=lastline
 "sign column color
-" highlight clear SignColumn
+highlight clear SignColumn
 "
