@@ -129,7 +129,7 @@ let g:incsearch#highlight = {
 "lsp things
 let g:lsp_async_completion = 1
 let g:asyncomplete_smart_completion = 1
-let g:asyncomplete_auto_popup = 0
+let g:asyncomplete_auto_popup = 1
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~ '\s'
@@ -276,6 +276,7 @@ function! SpellHighlight()
 endfunction
 "display
 set display+=lastline
+set shortmess+=c
 "sign column color
 highlight clear SignColumn
 "
