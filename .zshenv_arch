@@ -41,3 +41,5 @@ replace() {
         ^$2^^
     fi
 }
+
+eval $(pyenv init -)
