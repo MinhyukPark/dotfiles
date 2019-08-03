@@ -43,3 +43,4 @@ replace() {
 }
 
 eval "$(pyenv init -)"
+export PIPENV_PYTHON=$PYENV_ROOT/shims/python
