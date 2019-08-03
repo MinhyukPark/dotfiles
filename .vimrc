@@ -1,3 +1,39 @@
+" Vundle things
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'crusoexia/vim-monokai'
+Plugin 'Chiel92/vim-autoformat'
+"Plugin 'suan/vim-instant-markdown'
+Plugin 'junegunn/fzf'
+Plugin 'itchyny/lightline.vim'
+"Plugin 'tpope/vim-fugitive'
+Plugin 'junegunn/goyo.vim'
+Plugin 'haya14busa/incsearch.vim'
+Plugin 'lervag/vimtex'
+Plugin 'tpope/vim-commentary'
+Plugin 'airblade/vim-rooter'
+Plugin 'prabirshrestha/async.vim'
+Plugin 'prabirshrestha/vim-lsp'
+Plugin 'prabirshrestha/asyncomplete.vim'
+Plugin 'prabirshrestha/asyncomplete-lsp.vim'
+" Plugin 'RRethy/vim-hexokinase'
+" Plugin 'rhysd/vim-grammarous'
+" Plugin 'reedes/vim-wordy'
+" Plugin 'dpelle/vim-LanguageTool'
+" Plugin 'severin-lemaignan/vim-minimap'
+" Plugin 'shime/vim-livedown'
+" Plugin 'liuchengxu/vista.vim'
+"Plugin 'xuhdev/vim-latex-live-preview'
+"Plugin 'scrooloose/syntastic'
+call vundle#end()
+filetype plugin on
+filetype indent off
+
+colorscheme monokai
+
 syntax enable
 "tab things
 set tabstop=4
@@ -6,7 +42,6 @@ set expandtab
 set smarttab
 set autoindent
 set smartindent
-
 
 
 "scrolling things
@@ -29,7 +64,15 @@ let g:monokai_gui_italic = 1
 
 "vim latex things
 let g:vimtex_compiler_method = 'latexmk'
+let g:vimtex_compiler_latexmk = {
+    \ 'options' : [
+    \    '-shell-escape',
+    \    '-bibtex',
+    \ ],
+    \}
 let g:vimtex_quickfix_method = 'pplatex'
+let g:vimtex_view_automatic = 0
+let g:vimtex_view_enabled = 0
 let maplocalleader = ','
 
 "lightline things
@@ -87,10 +130,21 @@ let g:incsearch#highlight = {
 let g:lsp_async_completion = 1
 let g:asyncomplete_smart_completion = 1
 let g:asyncomplete_auto_popup = 1
-imap <c-k> <Plug>(asyncomplete_force_refresh)
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ asyncomplete#force_refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" imap <c-k> <Plug>(asyncomplete_force_refresh)
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
+
+
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 let g:lsp_signs_enabled = 1
 let g:lsp_diagnostics_enabled = 1
@@ -108,10 +162,11 @@ if executable('pyls')
         \ 'whitelist': ['python'],
         \ })
 endif
-if executable('clangd')
+if executable('clangd-8')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'clangd',
-        \ 'cmd': {server_info->['clangd']},
+        \ 'cmd': {server_info->['clangd-8']},
+        \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
         \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
         \ })
 endif
@@ -119,13 +174,15 @@ if executable('typescript-language-server')
     au User lsp_setup call lsp#register_server({
       \ 'name': 'javascript support using typescript-language-server',
       \ 'cmd': { server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-      \ 'whitelist': ['javascript', 'javascript.jsx']
+      \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
+      \ 'whitelist': ['js', 'javascript', 'javascript.jsx']
       \ })
 endif
 if executable('html-languageserver')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'html language server',
         \ 'cmd': { server_info->[&shell, &shellcmdflag, 'html-languageserver --stdio']},
+        \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
         \ 'whitelist': ['html'],
         \ })
 endif
@@ -141,6 +198,7 @@ if executable('json-languageserver')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'json language server',
         \ 'cmd': { server_info->[&shell, &shellcmdflag, 'json-languageserver --stdio']},
+        \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
         \ 'whitelist': ['json'],
         \ })
 endif
@@ -158,19 +216,19 @@ nnoremap cd :LspDefinition<CR>
 nnoremap cD :LspDeclaration<CR>
 
 ""wordy things
-"noremap <silent> <F11> :<C-u>PrevWordy<cr>
-"noremap <silent> <F12> :<C-u>NextWordy<cr>
-"noremap <silent> <F9> [s
-"noremap <silent> <F10> ]s
-"let g:wordy#ring = [
-"  \ ['weak', 'being', 'passive-voice'],
-"  \ ['business-jargon', 'art-jargon', 'puffery'],
-"  \ 'weasel',
-"  \ ['problematic', 'redundant', ],
-"  \ ['colloquial', 'idiomatic', 'similies', ],
-"  \ ['contractions', 'opinion', 'vague-time', 'said-synonyms', ],
-"  \ ['adjectives', 'adverbs'],
-"  \ ]
+" noremap <silent> <F11> :<C-u>PrevWordy<cr>
+" noremap <silent> <F12> :<C-u>NextWordy<cr>
+" noremap <silent> <F9> [s
+" noremap <silent> <F10> ]s
+" let g:wordy#ring = [
+"   \ ['weak', 'being', 'passive-voice'],
+"   \ ['business-jargon', 'art-jargon', 'puffery'],
+"   \ 'weasel',
+"   \ ['problematic', 'redundant', ],
+"   \ ['colloquial', 'idiomatic', 'similies', ],
+"   \ ['contractions', 'opinion', 'vague-time', 'said-synonyms', ],
+"   \ ['adjectives', 'adverbs'],
+"   \ ]
 
 " grammarous things
 " noremap <F11> :GrammarousCheck<CR>
@@ -183,51 +241,16 @@ nnoremap cD :LspDeclaration<CR>
 " noremap <F12> :LanguageToolClear<CR>
 
 "livedown things
-let g:livedown_browser = "chromium"
-let g:livedown_port ="7123"
-let g:livedown_open = 0 
-let g:livedown_autorun = 1
+" let g:livedown_browser = 'chromium'
+" let g:livedown_port ="7123"
+" let g:livedown_open = 0 
+" let g:livedown_autorun = 1
 
 
 " noremap <F9> :setlocal spell!<CR> 
 " hi clear SpellBad
 " hi SpellBad cterm=underline,bold ctermfg=red
 
-" Vundle things
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'crusoexia/vim-monokai'
-Plugin 'Chiel92/vim-autoformat'
-"Plugin 'suan/vim-instant-markdown'
-Plugin 'junegunn/fzf'
-Plugin 'itchyny/lightline.vim'
-"Plugin 'tpope/vim-fugitive'
-Plugin 'junegunn/goyo.vim'
-Plugin 'haya14busa/incsearch.vim'
-Plugin 'lervag/vimtex'
-Plugin 'tpope/vim-commentary'
-Plugin 'airblade/vim-rooter'
-Plugin 'prabirshrestha/async.vim'
-Plugin 'prabirshrestha/vim-lsp'
-Plugin 'prabirshrestha/asyncomplete.vim'
-Plugin 'prabirshrestha/asyncomplete-lsp.vim'
-" Plugin 'RRethy/vim-hexokinase'
-" Plugin 'rhysd/vim-grammarous'
-" Plugin 'reedes/vim-wordy'
-" Plugin 'dpelle/vim-LanguageTool'
-" Plugin 'severin-lemaignan/vim-minimap'
-Plugin 'shime/vim-livedown'
-" Plugin 'liuchengxu/vista.vim'
-"Plugin 'xuhdev/vim-latex-live-preview'
-"Plugin 'scrooloose/syntastic'
-call vundle#end()
-filetype plugin on
-filetype indent off
-
-colorscheme monokai
 
 "custom settings
 "status line
@@ -240,13 +263,20 @@ set nu rnu
 "" spelling
 noremap <silent> <C-h> : call SpellHighlight()<CR>
 function! SpellHighlight()
-    hi clear SpellBad
-    hi clear SpellCap
+    " vim
+    " hi clear SpellBad
+    " hi clear SpellCap
+    " setlocal spell!
+    " hi SpellBad cterm=underline,bold ctermfg=red
+    " hi SpellCap cterm=underline,bold ctermfg=blue
+    " nvim
     setlocal spell!
-    hi SpellBad cterm=underline,bold ctermfg=red
-    hi SpellCap cterm=underline,bold ctermfg=blue
+    hi SpellBad cterm=underline,bold guifg=#dcb9ff
+    hi SpellCap cterm=underline,bold guifg=#8899ff
 endfunction
 "display
 set display+=lastline
+set shortmess+=c
 "sign column color
 highlight clear SignColumn
+"
