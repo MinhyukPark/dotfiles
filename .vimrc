@@ -52,7 +52,7 @@ set viminfo='10000,<10000,s10000
 
 
 "vista things
-" let g:vista_default_executive = 'vim_lsp'
+let g:vista_default_executive = 'coc'
 let g:vista_fzf_preview = ['right:30%']
 function! NearestMethodOrFunction() abort
   return get(b:, 'vista_nearest_method_or_function', '')
@@ -153,8 +153,8 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 nmap <silent> cd <Plug>(coc-definition)
 nmap <silent> cr <Plug>(coc-references)<CR>
 nmap <silent> cR <Plug>(coc-rename)
-nmap <silent> ci <Plug>(coc-implementation)
-nmap <silent> ct <Plug>(coc-type-definition)
+nmap <silent> cI <Plug>(coc-implementation)
+nmap <silent> cD <Plug>(coc-type-definition)
 
 
 
