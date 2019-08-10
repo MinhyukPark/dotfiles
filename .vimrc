@@ -43,11 +43,11 @@ set smarttab
 set autoindent
 set smartindent
 
-
 "scrolling things
 set scrolloff=5
 " paste things
 set viminfo='10000,<10000,s10000
+
 
 "vista things
 " let g:vista_default_executive = 'vim_lsp'
