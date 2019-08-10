@@ -138,12 +138,19 @@ function! SetupCommandAbbrs(from, to)
         \ .'? ("'.a:to.'") : ("'.a:from.'"))'
 endfunction
 
-" Use C to open coc config
+autocmd CursorMoved * silent call CocActionAsync('highlight')
 call SetupCommandAbbrs('C', 'CocConfig')
-
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" clangd
+nmap <silent> cd <Plug>(coc-definition)
+nmap <silent> cr <Plug>(coc-references)<CR>
+nmap <silent> cR <Plug>(coc-rename)
+nmap <silent> ci <Plug>(coc-implementation)
+nmap <silent> ct <Plug>(coc-type-definition)
+
+
 " let g:lsp_async_completion = 1
 " let g:asyncomplete_smart_completion = 1
 " let g:asyncomplete_auto_popup = 1
