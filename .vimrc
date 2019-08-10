@@ -25,7 +25,7 @@ Plug 'airblade/vim-rooter'
 " Plugin 'dpelle/vim-LanguageTool'
 " Plugin 'severin-lemaignan/vim-minimap'
 " Plugin 'shime/vim-livedown'
-" Plugin 'liuchengxu/vista.vim'
+Plug 'liuchengxu/vista.vim'
 "Plugin 'xuhdev/vim-latex-live-preview'
 "Plugin 'scrooloose/syntastic'
 call plug#end()
@@ -149,6 +149,9 @@ nmap <silent> cr <Plug>(coc-references)<CR>
 nmap <silent> cR <Plug>(coc-rename)
 nmap <silent> ci <Plug>(coc-implementation)
 nmap <silent> ct <Plug>(coc-type-definition)
+
+
+
 
 "custom settings
 "status line
