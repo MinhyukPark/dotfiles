@@ -1,21 +1,20 @@
 " Vundle things
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'crusoexia/vim-monokai'
-Plugin 'Chiel92/vim-autoformat'
+call plug#begin('~/.vim/plugged')
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'VundleVim/Vundle.vim'
+Plug 'crusoexia/vim-monokai'
+Plug 'Chiel92/vim-autoformat'
 "Plugin 'suan/vim-instant-markdown'
-Plugin 'junegunn/fzf'
-Plugin 'itchyny/lightline.vim'
+Plug 'junegunn/fzf'
+Plug 'itchyny/lightline.vim'
 "Plugin 'tpope/vim-fugitive'
-Plugin 'junegunn/goyo.vim'
-Plugin 'haya14busa/incsearch.vim'
-Plugin 'lervag/vimtex'
-Plugin 'tpope/vim-commentary'
-Plugin 'airblade/vim-rooter'
+Plug 'junegunn/goyo.vim'
+Plug 'haya14busa/incsearch.vim'
+Plug 'lervag/vimtex'
+Plug 'tpope/vim-commentary'
+Plug 'airblade/vim-rooter'
 " Plugin 'prabirshrestha/async.vim'
 " Plugin 'prabirshrestha/vim-lsp'
 " Plugin 'prabirshrestha/asyncomplete.vim'
@@ -29,7 +28,7 @@ Plugin 'airblade/vim-rooter'
 " Plugin 'liuchengxu/vista.vim'
 "Plugin 'xuhdev/vim-latex-live-preview'
 "Plugin 'scrooloose/syntastic'
-call vundle#end()
+call plug#end()
 filetype plugin on
 filetype indent off
 
