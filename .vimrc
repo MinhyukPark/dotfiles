@@ -53,7 +53,13 @@ set viminfo='10000,<10000,s10000
 
 "vista things
 " let g:vista_default_executive = 'vim_lsp'
-" let g:vista_fzf_preview = ['right:30%']
+let g:vista_fzf_preview = ['right:30%']
+function! NearestMethodOrFunction() abort
+  return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
+
+set statusline+=%{NearestMethodOrFunction()}
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 
 
 "monokai things
