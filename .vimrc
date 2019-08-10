@@ -131,8 +131,9 @@ let g:incsearch#highlight = {
 		\   }
 		\ }
 
+"coc things
+autocmd FileType json syntax match Comment +\/\/.\+$+
 
-"lsp things
 " let g:lsp_async_completion = 1
 " let g:asyncomplete_smart_completion = 1
 " let g:asyncomplete_auto_popup = 1
