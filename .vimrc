@@ -2,7 +2,7 @@
 set nocompatible
 filetype off
 call plug#begin('~/.vim/plugged')
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'VundleVim/Vundle.vim'
 Plug 'crusoexia/vim-monokai'
 Plug 'Chiel92/vim-autoformat'
