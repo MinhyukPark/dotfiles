@@ -32,9 +32,10 @@ call plug#end()
 filetype plugin on
 filetype indent off
 
+"colorscheme
 colorscheme monokai
-
 syntax enable
+
 "tab things
 set tabstop=4
 set shiftwidth=4
@@ -42,6 +43,7 @@ set expandtab
 set smarttab
 set autoindent
 set smartindent
+
 
 "scrolling things
 set scrolloff=5
@@ -75,6 +77,7 @@ let g:vimtex_view_automatic = 0
 let g:vimtex_view_enabled = 0
 let maplocalleader = ','
 
+
 "lightline things
 set laststatus=2
 let g:lightline = {
@@ -94,6 +97,7 @@ let g:lightline = {
       \ },
       \ }
 
+
 "fzf things
 nnoremap <silent> <C-f> :FZF<CR>
 let g:fzf_layout = {'left': '50%'}
@@ -112,6 +116,7 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
+
 "incsearch things
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
@@ -126,94 +131,95 @@ let g:incsearch#highlight = {
 		\   }
 		\ }
 
+
 "lsp things
-let g:lsp_async_completion = 1
-let g:asyncomplete_smart_completion = 1
-let g:asyncomplete_auto_popup = 1
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ asyncomplete#force_refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" let g:lsp_async_completion = 1
+" let g:asyncomplete_smart_completion = 1
+" let g:asyncomplete_auto_popup = 1
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~ '\s'
+" endfunction
+" inoremap <silent><expr> <TAB>
+"   \ pumvisible() ? "\<C-n>" :
+"   \ <SID>check_back_space() ? "\<TAB>" :
+"   \ asyncomplete#force_refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 " imap <c-k> <Plug>(asyncomplete_force_refresh)
 " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
 
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-let g:lsp_signs_enabled = 1
-let g:lsp_diagnostics_enabled = 1
-let g:lsp_log_verbose = 1
-let g:lsp_log_file= expand('/var/log/lsp.log')
-let g:asyncomplete_log_file=expand('/var/log/asy.log')
-let g:lsp_signs_error = {'text': '✗'}
-let g:lsp_signs_warning = {'text': '⚠'}
-let g:lsp_signs_hint = {'text': 'Ⓘ'}
-let g:lsp_diagnostics_echo_cursor = 1
-if executable('pyls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ })
-endif
-if executable('clangd-8')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'clangd',
-        \ 'cmd': {server_info->['clangd-8']},
-        \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
-        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-        \ })
-endif
-if executable('typescript-language-server')
-    au User lsp_setup call lsp#register_server({
-      \ 'name': 'javascript support using typescript-language-server',
-      \ 'cmd': { server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-      \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
-      \ 'whitelist': ['js', 'javascript', 'javascript.jsx']
-      \ })
-endif
-if executable('html-languageserver')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'html language server',
-        \ 'cmd': { server_info->[&shell, &shellcmdflag, 'html-languageserver --stdio']},
-        \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
-        \ 'whitelist': ['html'],
-        \ })
-endif
-if executable('css-languageserver')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'css language server',
-        \ 'cmd': { server_info->[&shell, &shellcmdflag, 'css-languageserver --stdio']},
-        \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
-        \ 'whitelist': ['css'],
-        \ })
-endif
-if executable('json-languageserver')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'json language server',
-        \ 'cmd': { server_info->[&shell, &shellcmdflag, 'json-languageserver --stdio']},
-        \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
-        \ 'whitelist': ['json'],
-        \ })
-endif
-if executable('latex_language_server')
-    au User lsp_setup call lsp#register_server({
-      \ 'name': 'Latex server',
-      \ 'cmd': { server_info->['latex_language_server']},
-      \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
-      \ 'whitelist': ['latex', 'tex', 'bib']
-      \ })
-endif
+" autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+" let g:lsp_signs_enabled = 1
+" let g:lsp_diagnostics_enabled = 1
+" let g:lsp_log_verbose = 1
+" let g:lsp_log_file= expand('/var/log/lsp.log')
+" let g:asyncomplete_log_file=expand('/var/log/asy.log')
+" let g:lsp_signs_error = {'text': '✗'}
+" let g:lsp_signs_warning = {'text': '⚠'}
+" let g:lsp_signs_hint = {'text': 'Ⓘ'}
+" let g:lsp_diagnostics_echo_cursor = 1
+" if executable('pyls')
+"     au User lsp_setup call lsp#register_server({
+"         \ 'name': 'pyls',
+"         \ 'cmd': {server_info->['pyls']},
+"         \ 'whitelist': ['python'],
+"         \ })
+" endif
+" if executable('clangd-8')
+"     au User lsp_setup call lsp#register_server({
+"         \ 'name': 'clangd',
+"         \ 'cmd': {server_info->['clangd-8']},
+"         \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
+"         \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+"         \ })
+" endif
+" if executable('typescript-language-server')
+"     au User lsp_setup call lsp#register_server({
+"       \ 'name': 'javascript support using typescript-language-server',
+"       \ 'cmd': { server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+"       \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
+"       \ 'whitelist': ['js', 'javascript', 'javascript.jsx']
+"       \ })
+" endif
+" if executable('html-languageserver')
+"     au User lsp_setup call lsp#register_server({
+"         \ 'name': 'html language server',
+"         \ 'cmd': { server_info->[&shell, &shellcmdflag, 'html-languageserver --stdio']},
+"         \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
+"         \ 'whitelist': ['html'],
+"         \ })
+" endif
+" if executable('css-languageserver')
+"     au User lsp_setup call lsp#register_server({
+"         \ 'name': 'css language server',
+"         \ 'cmd': { server_info->[&shell, &shellcmdflag, 'css-languageserver --stdio']},
+"         \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
+"         \ 'whitelist': ['css'],
+"         \ })
+" endif
+" if executable('json-languageserver')
+"     au User lsp_setup call lsp#register_server({
+"         \ 'name': 'json language server',
+"         \ 'cmd': { server_info->[&shell, &shellcmdflag, 'json-languageserver --stdio']},
+"         \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
+"         \ 'whitelist': ['json'],
+"         \ })
+" endif
+" if executable('latex_language_server')
+"     au User lsp_setup call lsp#register_server({
+"       \ 'name': 'Latex server',
+"       \ 'cmd': { server_info->['latex_language_server']},
+"       \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
+"       \ 'whitelist': ['latex', 'tex', 'bib']
+"       \ })
+" endif
 
-nnoremap cR :LspRename<CR>
-nnoremap cd :LspDefinition<CR>
-nnoremap cD :LspDeclaration<CR>
+" nnoremap cR :LspRename<CR>
+" nnoremap cd :LspDefinition<CR>
+" nnoremap cD :LspDeclaration<CR>
 
 ""wordy things
 " noremap <silent> <F11> :<C-u>PrevWordy<cr>
