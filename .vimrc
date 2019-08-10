@@ -3,6 +3,7 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'crusoexia/vim-monokai'
 Plugin 'Chiel92/vim-autoformat'
