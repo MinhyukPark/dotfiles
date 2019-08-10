@@ -120,8 +120,6 @@ let g:fzf_colors =
 "incsearch things
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
-map <Tab> <Over>(incsearch-next)
-map <S-Tab> <Over>(incsearch-prev)
 set hlsearch
 let g:incsearch#auto_nohlsearch = 1
 let g:incsearch#highlight = {
@@ -142,6 +140,16 @@ endfunction
 
 " Use C to open coc config
 call SetupCommandAbbrs('C', 'CocConfig')
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
 
 " let g:lsp_async_completion = 1
 " let g:asyncomplete_smart_completion = 1
