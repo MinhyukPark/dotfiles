@@ -269,13 +269,6 @@ set nu rnu
 "" spelling
 noremap <silent> <C-h> : call SpellHighlight()<CR>
 function! SpellHighlight()
-    " vim
-    " hi clear SpellBad
-    " hi clear SpellCap
-    " setlocal spell!
-    " hi SpellBad cterm=underline,bold ctermfg=red
-    " hi SpellCap cterm=underline,bold ctermfg=blue
-    " nvim
     setlocal spell!
     hi SpellBad cterm=underline,bold guifg=#dcb9ff
     hi SpellCap cterm=underline,bold guifg=#8899ff
@@ -285,4 +278,3 @@ set display+=lastline
 set shortmess+=c
 "sign column color
 highlight clear SignColumn
-"
