@@ -131,8 +131,17 @@ let g:incsearch#highlight = {
 		\   }
 		\ }
 
+
 "coc things
 autocmd FileType json syntax match Comment +\/\/.\+$+
+function! SetupCommandAbbrs(from, to)
+  exec 'cnoreabbrev <expr> '.a:from
+        \ .' ((getcmdtype() ==# ":" && getcmdline() ==# "'.a:from.'")'
+        \ .'? ("'.a:to.'") : ("'.a:from.'"))'
+endfunction
+
+" Use C to open coc config
+call SetupCommandAbbrs('C', 'CocConfig')
 
 " let g:lsp_async_completion = 1
 " let g:asyncomplete_smart_completion = 1
