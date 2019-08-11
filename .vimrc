@@ -87,24 +87,6 @@ let maplocalleader = ','
 " airline things
 let g:airline_theme='base16'
 let g:airline_powerline_fonts = 1
-" let g:lightline = {
-"       \ 'colorscheme': 'seoul256',
-"       \ 'active': {
-"       \   'left': [ [ 'mode', 'paste' ],
-"       \             [ 'cocstatus', 'currentfunction', 'readonly', 'custom_message' , 'modified'] ],
-"       \   'right': [ [ 'filename' ],
-"       \              [ 'lineinfo' ],
-"       \              [ 'percent' ] ]
-"       \ },
-"       \ 'component_function': {
-"       \   'cocstatus': 'coc#status',
-"       \   'currentfunction': 'CocCurrentFunction'
-"       \ },
-"       \ 'component': {
-"       \   'custom_message': 'why'
-"       \ },
-"       \ }
-
 
 "fzf things
 nnoremap <silent> <C-f> :FZF<CR>
