@@ -154,6 +154,7 @@ nmap <silent> cR <Plug>(coc-rename)
 nmap <silent> cI <Plug>(coc-implementation)
 nmap <silent> cD <Plug>(coc-type-definition)
 
+set updatetime=300
 
 
 
