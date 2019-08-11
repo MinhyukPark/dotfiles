@@ -84,8 +84,8 @@ let g:vimtex_view_enabled = 0
 let maplocalleader = ','
 
 
-"lightline things
-" set laststatus=2
+" airline things
+let g:airline_theme='base16'
 " let g:lightline = {
 "       \ 'colorscheme': 'seoul256',
 "       \ 'active': {
