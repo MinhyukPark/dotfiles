@@ -10,7 +10,7 @@ Plug 'Chiel92/vim-autoformat'
 "Plugin 'suan/vim-instant-markdown'
 Plug 'junegunn/fzf'
 Plug 'itchyny/lightline.vim'
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 " Plug 'junegunn/goyo.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'lervag/vimtex'
@@ -88,13 +88,14 @@ let g:lightline = {
       \ 'colorscheme': 'seoul256',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'custom_message' , 'modified'] ],
+      \             [ 'cocstatus', 'currentfunction', 'readonly', 'custom_message' , 'modified'] ],
       \   'right': [ [ 'filename' ],
       \              [ 'lineinfo' ],
       \              [ 'percent' ] ]
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
+      \   'cocstatus': 'coc#status',
+      \   'currentfunction': 'CocCurrentFunction'
       \ },
       \ 'component': {
       \   'custom_message': 'why'
