@@ -9,7 +9,9 @@ Plug 'morhetz/gruvbox'
 Plug 'Chiel92/vim-autoformat'
 "Plugin 'suan/vim-instant-markdown'
 Plug 'junegunn/fzf'
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " Plug 'tpope/vim-fugitive'
 " Plug 'junegunn/goyo.vim'
 Plug 'haya14busa/incsearch.vim'
@@ -82,26 +84,12 @@ let g:vimtex_view_enabled = 0
 let maplocalleader = ','
 
 
-"lightline things
-set laststatus=2
-let g:lightline = {
-      \ 'colorscheme': 'seoul256',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'currentfunction', 'readonly', 'custom_message' , 'modified'] ],
-      \   'right': [ [ 'filename' ],
-      \              [ 'lineinfo' ],
-      \              [ 'percent' ] ]
-      \ },
-      \ 'component_function': {
-      \   'cocstatus': 'coc#status',
-      \   'currentfunction': 'CocCurrentFunction'
-      \ },
-      \ 'component': {
-      \   'custom_message': 'why'
-      \ },
-      \ }
-
+" airline things
+let g:airline_theme='bubblegum'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#coc#enabled = 1
+let g:airline_section_warning = ''
+let g:airline_section_error = ''
 
 "fzf things
 nnoremap <silent> <C-f> :FZF<CR>
@@ -165,8 +153,9 @@ set noshowmode
 "" lineno
 set number relativenumber
 set nu rnu
-"" no hightlight
-" noremap <C-H> :noh<CR>
+"" trailing whitespace highlight
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 "" spelling
 noremap <silent> <C-h> : call SpellHighlight()<CR>
 function! SpellHighlight()
