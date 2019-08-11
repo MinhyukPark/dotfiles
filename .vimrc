@@ -5,7 +5,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'VundleVim/Vundle.vim'
 Plug 'morhetz/gruvbox'
 Plug 'Chiel92/vim-autoformat'
-"Plug 'shime/vim-livedown'
+Plug 'shime/vim-livedown'
 "Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf'
 Plug 'vim-airline/vim-airline'
@@ -56,10 +56,10 @@ set shortmess+=c
 highlight clear SignColumn
 
 "" livevedown things
-"let g:livedown_browser = "firefox"
-"let g:livedown_port ="7123"
-"let g:livedown_open = 0
-"let g:livedown_autorun = 1
+let g:livedown_browser = "firefox"
+let g:livedown_port ="7123"
+let g:livedown_open = 0
+let g:livedown_autorun = 1
 
 """ ----------
 """ LINT
