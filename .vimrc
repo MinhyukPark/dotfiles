@@ -85,7 +85,7 @@ let maplocalleader = ','
 
 
 " airline things
-let g:airline_theme='base16'
+let g:airline_theme='bubblegum'
 let g:airline_powerline_fonts = 1
 
 "fzf things
