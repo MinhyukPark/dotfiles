@@ -152,8 +152,8 @@ set noshowmode
 "" lineno
 set number relativenumber
 set nu rnu
-"" no hightlight
-" noremap <C-H> :noh<CR>
+"" trailing whitespace highlight
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 "" spelling
 noremap <silent> <C-h> : call SpellHighlight()<CR>
 function! SpellHighlight()
