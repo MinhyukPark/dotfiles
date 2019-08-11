@@ -58,12 +58,14 @@ let g:vista_fzf_preview = ['right:30%']
 let g:vista#renderer#enable_icon = 1
 
 
-"monokai things
+"colorscheme things
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
-let g:monokai_term_italic = 1
-let g:monokai_gui_italic = 1
+let g:gruvbox_bold = 1
+let g:gruvbox_italic = 1
+let g:gruvbox_underline = 1
+let g:gruvbox_undercurl = 1
 
 
 "vim latex things
