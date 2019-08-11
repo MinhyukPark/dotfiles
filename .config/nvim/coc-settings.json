@@ -1,0 +1,8 @@
+{
+    "languageserver": {
+        "clangd": {
+            "command": "clangd-8",
+            "filetypes": ["c", "cpp", "objc", "objcpp", "h", "hpp"]
+        }
+    }
+}
