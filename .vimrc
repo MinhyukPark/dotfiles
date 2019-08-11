@@ -9,7 +9,7 @@ Plug 'morhetz/gruvbox'
 Plug 'Chiel92/vim-autoformat'
 "Plugin 'suan/vim-instant-markdown'
 Plug 'junegunn/fzf'
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
 " Plug 'tpope/vim-fugitive'
 " Plug 'junegunn/goyo.vim'
 Plug 'haya14busa/incsearch.vim'
@@ -83,24 +83,24 @@ let maplocalleader = ','
 
 
 "lightline things
-set laststatus=2
-let g:lightline = {
-      \ 'colorscheme': 'seoul256',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'currentfunction', 'readonly', 'custom_message' , 'modified'] ],
-      \   'right': [ [ 'filename' ],
-      \              [ 'lineinfo' ],
-      \              [ 'percent' ] ]
-      \ },
-      \ 'component_function': {
-      \   'cocstatus': 'coc#status',
-      \   'currentfunction': 'CocCurrentFunction'
-      \ },
-      \ 'component': {
-      \   'custom_message': 'why'
-      \ },
-      \ }
+" set laststatus=2
+" let g:lightline = {
+"       \ 'colorscheme': 'seoul256',
+"       \ 'active': {
+"       \   'left': [ [ 'mode', 'paste' ],
+"       \             [ 'cocstatus', 'currentfunction', 'readonly', 'custom_message' , 'modified'] ],
+"       \   'right': [ [ 'filename' ],
+"       \              [ 'lineinfo' ],
+"       \              [ 'percent' ] ]
+"       \ },
+"       \ 'component_function': {
+"       \   'cocstatus': 'coc#status',
+"       \   'currentfunction': 'CocCurrentFunction'
+"       \ },
+"       \ 'component': {
+"       \   'custom_message': 'why'
+"       \ },
+"       \ }
 
 
 "fzf things
