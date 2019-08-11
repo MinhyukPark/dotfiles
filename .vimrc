@@ -4,7 +4,8 @@ filetype off
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'VundleVim/Vundle.vim'
-Plug 'crusoexia/vim-monokai'
+" Plug 'crusoexia/vim-monokai'
+Plug 'morhetz/gruvbox'
 Plug 'Chiel92/vim-autoformat'
 "Plugin 'suan/vim-instant-markdown'
 Plug 'junegunn/fzf'
@@ -33,7 +34,7 @@ filetype plugin on
 filetype indent off
 
 "colorscheme
-colorscheme monokai
+colorscheme gruvbox
 syntax enable
 
 "tab things
