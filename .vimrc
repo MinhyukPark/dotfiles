@@ -153,7 +153,8 @@ set noshowmode
 set number relativenumber
 set nu rnu
 "" trailing whitespace highlight
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 "" spelling
 noremap <silent> <C-h> : call SpellHighlight()<CR>
 function! SpellHighlight()
