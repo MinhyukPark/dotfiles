@@ -1,6 +1,6 @@
 typeset -U path
-typeset -U manpath 
-typeset -U infopath 
+typeset -U manpath
+typeset -U infopath
 
 typeset -UT LD_LIBRARY_PATH ld_library_path :
 typeset -UT ANDROID_AVD_HOME android_avd_home :
@@ -22,10 +22,10 @@ export JUPYTER_PATH=(/home/min/Downloads/python3-virtual_env /home/min/Downloads
 export GPG_TTY=$(tty)
 path+=$(ruby -e 'print Gem.user_dir')/bin
 path+="/home/min/Downloads/node_modules/bin"
-export GEM_HOME=$HOME/.gem 
+export GEM_HOME=$HOME/.gem
 ld_library_path=(/usr/lib $ld_library_path)
 
-export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
 # opam configuration

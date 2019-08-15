@@ -8,6 +8,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'shime/vim-livedown'
 "Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'haya14busa/incsearch.vim'
@@ -124,7 +125,8 @@ set scrolloff=5
 set viminfo='10000,<10000,s10000
 
 "" fzf things
-nnoremap <silent> <C-f> :FZF<CR>
+nnoremap <silent> <C-f> :Files<CR>
+nnoremap <silent> <C-b> :Buffers<CR>
 let g:fzf_layout = {'left': '50%'}
 let g:fzf_colors = {
     \ 'fg':      ['fg', 'Normal'],
