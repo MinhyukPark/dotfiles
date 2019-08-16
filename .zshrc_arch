@@ -28,7 +28,7 @@ alias spotify='spotify &; disown'
 alias netflix='google-chrome-stable -app=https://www.netflix.com'
 alias hulu='google-chrome-stable -app=https://www.hulu.com'
 alias restart='reboot'
-alias sc='rg --files --no-ignore-vcs --hidden . | fzf --preview="head -$LINES {}"'
+alias sc='rg --files --hidden | fzf --preview="head -$LINES {}"'
 alias mosh='mosh --no-init --predict=never'
 # End from ~/.bash rc
 
