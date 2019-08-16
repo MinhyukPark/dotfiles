@@ -136,6 +136,7 @@ augroup ProjectDrawer
     autocmd VimEnter * :Vexplore
     autocmd VimEnter *  2wincmd w
 augroup END
+autocmd FileType netrw setl bufhidden=wipe
 
 
 "" fzf things
