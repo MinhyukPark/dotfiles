@@ -25,7 +25,7 @@ alias lt='ls -l -t'
 alias ll='ls -l -h'
 alias lla='ls -l -a'
 alias restart='reboot'
-alias sc='rg . | fzf --preview="head -$LINES {}"'
+alias sc='rg --files --no-ignore-vcs --hidden | fzf --preview="head -$LINES {}"'
 
 
 # from arch  wiki
@@ -127,4 +127,3 @@ source /usr/share/zsh-interactive-cd.plugin.zsh
 # highlighters
 typeset -A ZSH_HIGHLIGHT_STYLES
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
