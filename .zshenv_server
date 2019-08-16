@@ -1,0 +1,20 @@
+typeset -U path
+typeset -U manpath
+typeset -U infopath
+
+setopt histignorespace
+
+export GPG_TTY=$(tty)
+export PATH=$HOME/.local/bin:$PATH
+export GOPATH=/opt/go
+export TERM=xterm-termite
+
+export XAUTHORITY=$HOME/.Xauthority
+
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+
+export PYENV_ROOT=$HOME/.pyenv
+path+="$PYENV_ROOT/bin"
+eval "$(pyenv init -)"
+export PIPENV_PYTHON=$PYENV_ROOT/shims/python
