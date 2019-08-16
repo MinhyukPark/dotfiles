@@ -134,6 +134,7 @@ let g:netrw_browse_split = 4
 augroup ProjectDrawer
     autocmd!
     autocmd VimEnter * :Vexplore
+    autocmd VimEnter *  2wincmd w
 augroup END
 
 
