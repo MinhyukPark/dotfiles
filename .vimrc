@@ -121,8 +121,21 @@ let maplocalleader = ','
 
 "" scrolling things
 set scrolloff=5
+
 "" paste things
 set viminfo='10000,<10000,s10000
+
+"" netrw things
+let g:netrw_banner = 0
+let g:netrw_winsize = 25
+let g:netrw_liststyle = 3
+let g:netrw_altv = 1
+let g:netrw_browse_split = 4
+augroup ProjectDrawer
+    autocmd!
+    autocmd VimEnter * :Vexplore
+augroup END
+
 
 "" fzf things
 nnoremap <silent> <C-f> :Files<CR>
