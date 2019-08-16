@@ -33,7 +33,7 @@ alias sf='fzf --preview="head -$LINES {}"'
 alias mosh='mosh --no-init --predict=never'
 # End from ~/.bash rc
 
-# from arch  wiki 
+# from arch  wiki
 zstyle ':completion:*' rehash true
 
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
