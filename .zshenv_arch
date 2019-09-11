@@ -17,7 +17,6 @@ path=(/usr/local/texlive/2018/bin/x86_64-linux $path)
 
 # node stuff
 export npm_config_prefix=~/Downloads/node_modules
-export JUPYTER_PATH=(/home/min/Downloads/python3-virtual_env /home/min/Downloads/python3-virtual_env/lib/python3.7/lib-dynload /home/min/Downloads/python3-virtual_env/lib/python3.7/site-packages /home/min/Downloads/python3-virtual_env/lib/python3.7/site-packages/IPython $JUPYTER_PATH)
 
 export GPG_TTY=$(tty)
 path+=$(ruby -e 'print Gem.user_dir')/bin
