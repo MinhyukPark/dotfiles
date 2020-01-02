@@ -29,7 +29,7 @@ alias netflix='google-chrome-stable -app=https://www.netflix.com'
 alias hulu='google-chrome-stable -app=https://www.hulu.com'
 alias restart='reboot'
 alias sf='rg --files --no-ignore-vcs | fzf --preview="head -$LINES {}"'
-alias sc='rg --hidden --no-ignore-vcs | fzf --preview="head -$LINES {}"'
+alias sc='rg --files-with-matches --hidden --no-ignore-vcs | fzf --preview="head -$LINES {}"'
 alias mosh='mosh --no-init --predict=never'
 # End from ~/.bash rc
 
