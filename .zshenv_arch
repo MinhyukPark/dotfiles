@@ -25,7 +25,7 @@ path+="/home/min/go/bin"
 export GEM_HOME=$HOME/.gem
 ld_library_path=(/usr/lib $ld_library_path)
 
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
 # opam configuration
