@@ -11,7 +11,7 @@ path=(/opt/android-sdk/emulator/ $path)
 android_avd_home=(/opt/android-sdk/system-images/android-24/default/armeabi-v7a/ $android_avd_home)
 
 # tex stuff
-# manpath=(/usr/local/texlive/2018/texmf-dist/doc/man $manpath)
+manpath=(/usr/local/texlive/2018/texmf-dist/doc/man $manpath)
 infopath=(/usr/local/texlive/2018/texmf-dist/doc/info $infopath)
 path=(/usr/local/texlive/2018/bin/x86_64-linux $path)
 
@@ -29,7 +29,7 @@ export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
 # opam configuration
-# test -r /home/min/.opam/opam-init/init.zsh && . /home/min/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+test -r /home/min/.opam/opam-init/init.zsh && . /home/min/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 # custom function
 replace() {
