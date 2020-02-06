@@ -205,7 +205,7 @@ animation-packetloss-framerate = 500
 
 [module/music]
 type = custom/script
-exec = if [[ "$(playerctl status)" = "Playing" ]]; then playerctl metadata xesam:artist; echo -n " - "; playerctl metadata xesam:title; else echo -n ""; fi
+exec = if [[ "$(playerctl status)" = "Playing" ]]; then playerctl metadata title | tr -d '\n' ; echo -n " - "; playerctl metadata artist; elif [[ "$(playerctl status)" = "Paused" ]]; then echo -n "Paused"; echo -n ":" ; playerctl metadata title | tr -d '\n' ; echo -n " - "; playerctl metadata artist; else echo -n ""; fi
 exec-if = [[ "$(playerctl status)" = "Playing" || "$(playerctl status)" = "Paused" ]] && echo "0"
 interval = 1
 format = <label>
