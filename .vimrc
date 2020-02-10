@@ -57,7 +57,7 @@ set shortmess+=c
 highlight clear SignColumn
 
 "" livevedown things
-let g:livedown_browser = "firefox"
+let g:livedown_browser = "chromium"
 let g:livedown_port ="7123"
 let g:livedown_open = 1
 let g:livedown_autorun = 1
