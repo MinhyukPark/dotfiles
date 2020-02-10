@@ -20,7 +20,7 @@ export npm_config_prefix=~/node_modules
 
 export GPG_TTY=$(tty)
 path+=$(ruby -e 'print Gem.user_dir')/bin
-path+="/home/min/Downloads/node_modules/bin"
+path+="/home/min/node_modules/bin"
 path+="/home/min/go/bin"
 export GEM_HOME=$HOME/.gem
 ld_library_path=(/usr/lib $ld_library_path)
