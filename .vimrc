@@ -5,7 +5,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'VundleVim/Vundle.vim'
 Plug 'morhetz/gruvbox'
 Plug 'Chiel92/vim-autoformat'
-" Plug 'shime/vim-livedown'
+Plug 'shime/vim-livedown'
 "Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
