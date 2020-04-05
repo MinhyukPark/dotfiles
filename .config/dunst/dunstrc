@@ -24,6 +24,7 @@
     show_indicators = no
     icon_position = left
     icon_folders = /usr/share/icons/Notifications
+    max_icon_size = 32
 
 [frame]
     color = "#c3bf9f"
