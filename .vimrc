@@ -66,12 +66,12 @@ let g:livedown_autorun = 1
 """ LINT
 
 "" tab things
-" set tabstop=4
-" set shiftwidth=4
-" set expandtab
-" set smarttab
-" set autoindent
-" set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set smarttab
+set autoindent
+set smartindent
 
 "" trailing whitespace highlight
 highlight ExtraWhitespace ctermbg=red guibg=red
