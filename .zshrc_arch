@@ -42,7 +42,7 @@ POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='\uf054 '
 # source /usr/share/fonts/awesome-terminal-fonts/*.sh
 # POWERLEVEL9K_MODE='awesome-fontconfig'
 POWERLEVEL9K_MODE='nerdfont-complete'
-source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # Powerline stuff
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
