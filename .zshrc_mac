@@ -42,7 +42,7 @@ POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='\uf054 '
 # source /usr/share/fonts/awesome-terminal-fonts/*.sh
 # POWERLEVEL9K_MODE='awesome-fontconfig'
 POWERLEVEL9K_MODE='nerdfont-complete'
-source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
+source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # Powerline stuff
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
@@ -110,6 +110,9 @@ POWERLEVEL9K_VIRTUALENV_FOREGROUND=251
 
 # interactive cd
 source ~/git_repos/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 
-eval $( gdircolors -b ~/git_repos/LS_COLORS/LS_COLORS )
+eval $( gdircolors -b ~/.config/LS_COLORS/LS_COLORS )
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
