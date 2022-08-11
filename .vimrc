@@ -1,6 +1,13 @@
 set nocompatible
 filetype off
-call plug#begin('~/.vim/plugged')
+
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'VundleVim/Vundle.vim'
 Plug 'morhetz/gruvbox'
@@ -22,12 +29,6 @@ filetype indent off
 
 """ ----------
 """ A E S T H E T I C
-
-"" cursor shape
-let &t_ti.="\e[1 q"
-let &t_SI.="\e[5 q"
-let &t_EI.="\e[1 q"
-let &t_te.="\e[0 q"
 
 "" colorscheme
 colorscheme gruvbox
@@ -63,7 +64,7 @@ set shortmess+=c
 highlight clear SignColumn
 
 "" livevedown things
-let g:livedown_browser = "chromium"
+let g:livedown_browser = "firefox"
 let g:livedown_port ="7123"
 let g:livedown_open = 1
 let g:livedown_autorun = 1
@@ -92,22 +93,36 @@ function! SpellHighlight()
 endfunction
 
 "" coc things
-autocmd FileType json syntax match Comment +\/\/.\+$+
-function! SetupCommandAbbrs(from, to)
-    exec 'cnoreabbrev <expr> '.a:from
-        \ .' ((getcmdtype() ==# ":" && getcmdline() ==# "'.a:from.'")'
-        \ .'? ("'.a:to.'") : ("'.a:from.'"))'
+let g:coc_global_extensions = [
+\   'coc-pyright',
+\   'coc-sh@0.6.1'
+\]
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-autocmd CursorMoved * silent call CocActionAsync('highlight')
-call SetupCommandAbbrs('C', 'CocConfig')
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-nmap <silent> cd <Plug>(coc-definition)
-nmap <silent> cr <Plug>(coc-references)<CR>
-nmap <silent> cR <Plug>(coc-rename)
-nmap <silent> cI <Plug>(coc-implementation)
-nmap <silent> cD <Plug>(coc-type-definition)
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 "" vim latex things
 let g:vimtex_compiler_method = 'latexmk'
@@ -115,6 +130,7 @@ let g:vimtex_compiler_latexmk = {
     \ 'options' : [
     \    '-shell-escape',
     \    '-bibtex',
+    \    '-f',
     \ ],
     \ }
 let g:vimtex_quickfix_method = 'pplatex'
@@ -137,11 +153,11 @@ let g:netrw_winsize = 25
 let g:netrw_liststyle = 3
 let g:netrw_altv = 1
 let g:netrw_browse_split = 4
-augroup ProjectDrawer
-    autocmd!
-    autocmd VimEnter * :Vexplore
-    autocmd VimEnter *  2wincmd w
-augroup END
+" augroup ProjectDrawer
+"     autocmd!
+"     autocmd VimEnter * :Vexplore
+"     autocmd VimEnter *  2wincmd w
+" augroup END
 autocmd FileType netrw setl bufhidden=wipe
 
 
